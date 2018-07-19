@@ -1,5 +1,4 @@
 import * as React from 'react';
-// import './Navbar.css';
 import {NavLink} from 'react-router-dom';
 import * as M from "materialize-css";
 
@@ -8,8 +7,6 @@ interface NavbarSideProps {
 
 interface NavbarSideState {
 }
-
-
 
 class SideNavbar extends React.Component<NavbarSideState, NavbarSideProps> {
     componentDidMount() {
