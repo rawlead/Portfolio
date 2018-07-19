@@ -1,0 +1,50 @@
+.main-img {
+    background: url('../../assets/main.jpg') no-repeat left;
+    background-size: cover;
+    width: 30%;
+    position: absolute;
+    min-height: 400px;
+    right: 21%;
+    z-index: -1;
+    top: -30%;
+    bottom: -25%;
+    overflow: hidden;
+}
+
+#introduction {
+    position: relative;
+    z-index: 3;
+    background-color: #fff;
+    min-height: 30vh;
+    color: #143056;
+}
+
+@media screen and (max-width: 992px){
+    .main-img {
+        width: 50%;
+        right: 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #introduction .container {
+        width: 100%;
+        padding-top: 50px;
+    }
+
+    .main-img {
+        position: relative;
+        width: 100%;
+        margin-top: 50px;
+        right: 0;
+        left: 0;
+        clip-path: polygon(
+                0 20%, /* left top */ 100% 0, /* right top */ 100% 80%, /* right bottom */ 0 100% /* left bottom */
+        );
+        -webkit-clip-path: polygon(
+                0 20%, /* left top */ 100% 0, /* right top */ 100% 80%, /* right bottom */ 0 100% /* left bottom */
+        );
+    }
+}
+
+

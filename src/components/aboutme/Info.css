@@ -1,0 +1,9 @@
+#info {
+    background: #fff url('../../assets/fireworks.png');
+    background-size: contain;
+    position: relative;
+    z-index: 3;
+    padding-top: 50px;
+
+    color: #143056;
+}

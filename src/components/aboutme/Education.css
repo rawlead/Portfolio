@@ -1,0 +1,39 @@
+#education {
+    background-color: #fff;
+    color: #fff;
+    padding: 50px 0;
+    margin-bottom: 0px;
+    padding-top: 100px;
+    z-index: 2;
+}
+.education-img {
+    max-height: 350px;
+    margin: 70px 0;
+}
+
+#education:before {
+    /*height: 200px;*/
+    width: 100%;
+    z-index: 1;
+}
+
+
+#education h3, h6 {
+    position: relative;
+    z-index: 5;
+}
+
+.night-bottom {
+    position: absolute;
+    width: 100%;
+    bottom: -200px;
+    z-index: 1;
+    background: transparent;
+}
+
+
+@media screen and (max-width: 600px) {
+    #education .container {
+        padding-top: 30px;
+    }
+}

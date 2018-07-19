@@ -1,0 +1,28 @@
+.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 64px;
+    display: inline;
+    margin-right: 12%;
+    z-index: 5;
+}
+
+
+.table-of-contents a {
+    color: #627080;
+    /*font-weight: bolder;*/
+}
+
+.table-of-contents a.active {
+    border-left-color: #F6B34E ;
+    color: #F6B34E;
+    /*font-weight: bold;*/
+
+}
+
+.table-of-contents a:hover {
+    color: #F6B34E;
+    border-left-color: #F6B34E;
+
+}
+

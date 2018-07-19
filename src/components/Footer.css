@@ -1,0 +1,33 @@
+.social-link {
+    display: inline-block;
+    margin: 5px 3px;
+}
+
+footer {
+    z-index: 3;
+
+}
+
+.social-link:hover {
+    opacity: 0.75;
+    transition: opacity 0.5s;
+}
+
+.img__before__footer {
+    width: 100%;
+    display: block;
+}
+
+.page-footer {
+    background-color: #00001B;
+    position: relative;
+    padding-top: 0;
+    margin-top: 0;
+    padding-bottom: 50px;
+}
+
+.page-footer h5 {
+    margin-top: 0;
+}
+
+

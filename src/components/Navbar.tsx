@@ -27,6 +27,8 @@ class NavbarTop extends React.Component {
         }
     }
 
+
+
     render() {
         return (
             <div>
@@ -39,7 +41,8 @@ class NavbarTop extends React.Component {
                             <ul className="left hide-on-med-and-down">
                                 <li><NavLink exact={true} to="/" activeClassName="active">Home</NavLink></li>
                                 <li><NavLink to="/projects" activeClassName="active">Projects</NavLink></li>
-                                <li><NavLink to="/aboutMe" activeClassName="active">About Me</NavLink></li>
+                                <li><NavLink to="/aboutMe" activeClassName="active">About
+                                    Me</NavLink></li>
                                 <li><NavLink to="/resume" activeClassName="active">Resume</NavLink></li>
                             </ul>
                         </div>

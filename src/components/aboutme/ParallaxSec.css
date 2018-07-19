@@ -1,0 +1,44 @@
+.parallax__container__top {
+    height: 350px;
+    z-index: 3;
+}
+
+.parallax__container__bottom {
+    height: 700px;
+    background-color: #fff;
+}
+
+.parallax img {
+    max-width: 100%;
+}
+
+.parallax-container {
+    background-color: #fff;
+
+}
+
+.parallax__top {
+    clip-path: polygon(
+            0 0, /* left top */ 100% 0, /* right top */ 100% 80%, /* right bottom */ 0 100% /* left bottom */
+    );
+    -webkit-clip-path: polygon(
+            0 0, /* left top */ 100% 0, /* right top */ 100% 80%, /* right bottom */ 0 100% /* left bottom */
+    );
+}
+
+.parallax__bottom {
+    clip-path: polygon(
+            0 12%, /* left top */ 100% 0, /* right top */ 100% 100%, /* right bottom */ 0 100% /* left bottom */
+    );
+    -webkit-clip-path: polygon(
+            0 12%, /* left top */ 100% 0, /* right top */ 100% 100%, /* right bottom */ 0 100% /* left bottom */
+    );
+}
+
+.parallax__container__top .parallax-caption {
+    margin-top: 90px;
+}
+
+.parallax-caption {
+    position: relative;
+}

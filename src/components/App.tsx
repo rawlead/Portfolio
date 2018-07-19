@@ -12,6 +12,14 @@ import FloatingActionButton from '../components/FloatingActionButton';
 
 
 class App extends React.Component {
+    componentDidMount() {
+        // document.addEventListener('DOMContentLoaded', () => {
+        //     const elems = document.querySelectorAll('.parallax');
+        //     M.Parallax.init(elems);
+        // });
+
+    }
+
     render() {
         return (
             <Router>

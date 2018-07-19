@@ -1,0 +1,68 @@
+.slider h3, .slider h5 {
+    padding: 5px 20px;
+    font-weight: bold;
+}
+
+.slider h3 {
+    color: #F6B34E;
+}
+
+.slider a {
+    background-color: #143056;
+}
+.slider a:hover {
+    background-color: #00001B;
+}
+
+.slider .caption {
+    padding-top: 100px;
+}
+
+.slider .indicators .indicator-item.active {
+    background-color: #F6B34E;
+}
+
+.indicators {
+    top: 80%;
+    left: 50%;
+    bottom: 20%;
+    right: 50%;
+    transform: translateX(0px) translateY(0px);
+}
+
+.slider .indicators .indicator-item {
+    background-color: #00001B;
+    border: 3px solid #F6B34E;
+    z-index: 6;
+    position: relative;
+}
+
+.featured-section-title {
+    position: absolute;
+    background-color: #00001B;
+    top: 90px;
+    left: 15%;
+    padding: 10px;
+    z-index: 10;
+    color: white;
+}
+
+#featured_projects_wrapper {
+    position: relative;
+}
+
+#featured_projects {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+@media screen and (max-width: 600px) {
+    .featured-section-title {
+        left: 5%;
+    }
+}
+
