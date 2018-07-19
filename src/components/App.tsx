@@ -6,13 +6,15 @@ import Home from '../containers/Home';
 import Projects from '../containers/Projects';
 import AboutMe from '../containers/AboutMe';
 
+import Navbar from '../components/Navbar';
+
 
 class App extends React.Component {
     render() {
         return (
             <Router>
-                {/*<Navbar/>*/}
                 <div>
+                    <Navbar/>
                     <Route exact={true} path="/" component={Home}/>
                     <Route path="/projects" component={Projects}/>
                     <Route path='/aboutMe' component={AboutMe}/>
