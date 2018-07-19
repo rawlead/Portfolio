@@ -1,0 +1,39 @@
+blockquote {
+  border-left-color: #F6B34E;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+
+body, html  {
+  padding: 0;
+  margin: 0;
+}
+
+#facts i , #featured_projects i {
+  color: #F6B34E;
+}
+
+.fixed-action-btn > a {
+  background-color: #143056;
+  border: 1px solid #F6B34E;
+}
+.fixed-action-btn > a i {
+  color: #F6B34E;
+}
+
+.fixed-action-btn > a:hover {
+  background-color: #F6B34E;
+  border-color: #143056;
+}
+
+.fixed-action-btn > a:hover i {
+  color: #143056;
+
+}
