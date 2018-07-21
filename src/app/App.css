@@ -11,6 +11,12 @@ blockquote {
 }
 
 
+.progress {
+  background-color: #ff3e23;
+margin: 0;
+  z-index: 20;
+
+}
 body, html  {
   padding: 0;
   margin: 0;

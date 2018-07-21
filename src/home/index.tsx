@@ -9,6 +9,8 @@ import {Link} from 'react-router-dom';
 import './Home.css'
 
 class Home extends React.Component {
+
+
     render() {
         return (
             <div id="home-page">
@@ -17,23 +19,29 @@ class Home extends React.Component {
                 {/*<img className="cloud cloud-3" src={cloud_3} alt="Cloud 3"/>*/}
                 {/*<img className="cloud cloud-4 hide-on-small-and-down" src={cloud_4} alt="Cloud 4"/>*/}
 
-                <div className="home-page-img center-align"/>
+                {/*<div id="home-page-img" className="home-page-img center-align"/>*/}
+                {/*<div id="particles-js"/>*/}
+
+
+                <div className="home-page-cover"/>
                 <div className="row">
 
-                    <div className="col s12 hero-text">
-                        <h1 className=" center-align">IVAN <br/> SHYRAI</h1>
-                    </div>
+                    {/*<div className="col s12 hero-text">*/}
+                    {/*</div>*/}
 
-                    <div className="home-page-nav col s12">
-                        <h3><Link to="/projects" style={{color: "#FFD39B"}}>Projects</Link></h3>
+                    <div className="home-page-nav">
+                        <h1 className="hero-text">IVAN SHYRAI</h1>
+                        <h4><Link to="/projects" style={{color: "#4BBDAC"}}>Projects</Link></h4>
                         {/*<h2><a style={{color: "#FFD39B"}} href="/">Projects</a></h2>*/}
-                        <h3><Link to="/aboutMe" style={{color: "#4BBDAC"}}>About Me</Link></h3>
-                        <h3><Link to="/resume" style={{color: "#F6B34E"}}>Resume</Link></h3>
+                        <h4><Link to="/aboutMe" style={{color: "#FF3E23"}}>About Me</Link></h4>
+                        <h4><Link to="/resume" style={{color: "#FFD39B"}}>Resume</Link></h4>
                     </div>
                 </div>
+
             </div>
         )
     }
 }
+
 
 export default Home;

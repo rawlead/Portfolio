@@ -24,6 +24,8 @@ class SideNavbar extends React.Component<NavbarSideState, NavbarSideProps> {
                 <li><NavLink to="/projects" className="sidenav-close" activeClassName="active">Projects</NavLink></li>
                 <li><NavLink to="/aboutMe" className="sidenav-close" activeClassName="active">About Me</NavLink></li>
                 <li><NavLink to="/resume" className="sidenav-close" activeClassName="active">Resume</NavLink></li>
+                <li><NavLink to="/login" className="sidenav-close" activeClassName="active">Login</NavLink></li>
+                <li><NavLink to="/signup" className="sidenav-close" activeClassName="active">Signup</NavLink></li>
             </ul>
         )
     }
