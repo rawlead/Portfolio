@@ -85,6 +85,7 @@
     background-color: #000;
     z-index: 3;
     opacity: .65;
+    min-height: 100vh;
 }
 
 

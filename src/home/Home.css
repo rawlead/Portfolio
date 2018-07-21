@@ -44,9 +44,9 @@ canvas {
 }
 
 .hero-text  {
+    margin: 0 30px;
     font-weight: bold;
     color: #F6B34E;
-    margin-top: 0;
     position: relative;
     z-index: 3;
 }
