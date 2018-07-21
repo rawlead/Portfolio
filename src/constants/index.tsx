@@ -1,4 +1,12 @@
-export const API_BASE_URL = 'http://localhost:5000/api';
+// HEROKU
+export const API_BASE_URL = 'https://is-portfolio-server.herokuapp.com/api';
+
+// LOCAL
+// export const API_BASE_URL = 'http://localhost:5000/api';
+
+
+
+
 // export const API_BASE_URL = '/api';
 export const ACCESS_TOKEN = 'accessToken';
 
