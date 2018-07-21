@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4140f735-3d1e-48ac-92bf-ce112a41e60e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/constants/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,7 +40,11 @@
       </file>
       <file leaf-file-name="index.tsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/constants/index.tsx">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -151,7 +155,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="634" />
+    <option name="x" value="88" />
+    <option name="y" value="43" />
     <option name="width" value="1680" />
     <option name="height" value="975" />
   </component>
@@ -335,16 +340,15 @@
       <workItem from="1532134456094" duration="1890000" />
       <workItem from="1532167789448" duration="14531000" />
       <workItem from="1532192344676" duration="16134000" />
-      <workItem from="1532211773172" duration="1075000" />
+      <workItem from="1532211773172" duration="1218000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92574000" />
+    <option name="totallyTimeSpent" value="92717000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="634" width="1680" height="975" extended-state="0" />
-    <editor active="true" />
+    <frame x="113" y="693" width="1680" height="975" extended-state="0" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -356,11 +360,11 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.28162816" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.28162816" />
       <window_info id="Capture Tool" order="2" />
       <window_info anchor="bottom" id="TypeScript" order="7" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20110025" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20110025" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -654,7 +658,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/constants/index.tsx">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">
