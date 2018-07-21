@@ -1,21 +1,24 @@
     import * as React from 'react';
     import {login} from "../../util/APIUtils";
     import {
-        ACCESS_TOKEN,
-        PASSWORD_MAX_LENGTH,
-        PASSWORD_MIN_LENGTH,
-        USERNAME_MAX_LENGTH,
-        USERNAME_MIN_LENGTH
-    } from "../../constants";
+    ACCESS_TOKEN, EMAIL_MAX_LENGTH,
+    PASSWORD_MAX_LENGTH,
+    PASSWORD_MIN_LENGTH, RECAPTCHA_SITE_KEY,
+    USERNAME_MIN_LENGTH
+} from "../../constants";
     import * as M from "materialize-css";
+    // import Recaptcha from 'react-recaptcha';
     import LoadingIndicator from "../../common/LoadingIndicator";
     import '../UserForms.css';
     import {Link} from "react-router-dom";
+    import * as Recaptcha from "react-recaptcha";
 
     interface LoginFormState {
         [key: string]: any,
 
         isLoading: boolean,
+        isWrongCredentials: boolean,
+        isRecaptchaVerified: any
     }
 
     class LoginForm extends React.Component<any, LoginFormState> {
@@ -28,11 +31,14 @@
                 password: {
                     value: ''
                 },
-                isLoading: false
+                isLoading: false,
+                isWrongCredentials : false,
+                isRecaptchaVerified : null
             };
             this.handleChange = this.handleChange.bind(this);
             this.handleSubmit = this.handleSubmit.bind(this);
             this.fieldsAreNotEmpty = this.fieldsAreNotEmpty.bind(this);
+            this.recaptchaVerifyCallback = this.recaptchaVerifyCallback.bind(this);
         }
 
         handleChange(event: any) {
@@ -47,8 +53,19 @@
             });
         }
 
+        recaptchaVerifyCallback(response : any) {
+            if (response) {
+                this.setState({isRecaptchaVerified : true})
+            }
+        }
+
         handleSubmit(event: any) {
             event.preventDefault();
+
+            if (!this.state.isRecaptchaVerified) {
+                M.toast({html: 'Please verify that you are not a robot!'});
+                return;
+            }
 
             const {usernameOrEmail, password} = this.state;
 
@@ -73,15 +90,15 @@
                 .then(response => {
                     localStorage.setItem(ACCESS_TOKEN, response.accessToken);
                     this.props.onLogin();
-                    this.setState({isLoading: false});
+                    this.setState({isLoading: false, isWrongCredentials: false});
                     M.toast({html: `Welcome back, ${usernameOrEmail.value}`});
                 }).catch(error => {
 
                 this.setState({isLoading: false});
 
                 if (error.status === 401) {
-                    M.toast({html: 'Wrong Email/Username or Password'});
-
+                    // M.toast({html: 'Wrong Email/Username or Password'});
+                    this.setState({isWrongCredentials: true})
                 } else {
 
                     M.toast({html: 'SOMETHING WRONG (OTHER THAN 401)'});
@@ -93,27 +110,23 @@
         render() {
             return (
                 <div style={{minHeight: '100vh'}} className="login-root">
+                        <div className="user-form-col user-form-col-left-cover"/>
 
-                    <div style={{marginBottom: 0}}>
-
-
-                        <div className="hide-on-med-and-down  user-form-col user-form-col-left-cover"/>
-
-                        <div className="hide-on-med-and-down  user-form-col user-form-col-left">
+                        <div className="hide-on-med-and-down  user-form-col user-form-col-left__login">
 
                             <div className="user-form-col-left-text">
-                                <h1>Welcome!</h1>
+                                <h2>Welcome!</h2>
                                 <h3>Please Login</h3>
                                 <p><Link className="amber-text" to="/signup">Or create new account</Link></p>
                             </div>
 
                         </div>
 
-                        <div className="user-form-col user-form-col-right">
+                        <div className="user-form-col user-form-col-right user-form-col-right__login">
 
 
                             <form onSubmit={this.handleSubmit}>
-                                <h1>Login</h1>
+                                <h2>Login</h2>
                                 <div className="input-field">
                                     <i className="material-icons prefix">account_circle</i>
                                     <input id="usernameOrEmail"
@@ -127,6 +140,7 @@
                                 <div className="input-field">
                                     <i className="material-icons prefix">lock</i>
                                     <input id="password"
+                                           className="input-field-text"
                                            type="password"
                                            name="password"
                                            value={this.state.password.value}
@@ -134,21 +148,31 @@
                                     />
                                     <label htmlFor="password">Password</label>
                                 </div>
+
+                                <Recaptcha
+                                    sitekey={RECAPTCHA_SITE_KEY}
+                                    render="explicit"
+                                    verifyCallback={this.recaptchaVerifyCallback}
+                                />
+
+                                {this.state.isWrongCredentials &&
+                                <p className="red-text">Wrong username, email or password</p>}
                                 {this.state.isLoading ?
                                     (<LoadingIndicator/>) :
                                     (<button type="submit"
                                              disabled={!this.fieldsAreNotEmpty()}
-                                             className="btn ">Submit</button>)}
+                                             className="btn waves-effect">Submit
+                                        <i className="material-icons right">send</i>
+                                    </button>)}
                             </form>
                         </div>
                     </div>
-                </div>
             )
         }
 
         fieldsAreNotEmpty() {
             return this.state.usernameOrEmail.value.length >= USERNAME_MIN_LENGTH &&
-                this.state.usernameOrEmail.value.length <= USERNAME_MAX_LENGTH &&
+                this.state.usernameOrEmail.value.length <= EMAIL_MAX_LENGTH &&
                 this.state.password.value.length >= PASSWORD_MIN_LENGTH &&
                 this.state.password.value.length <= PASSWORD_MAX_LENGTH;
         }

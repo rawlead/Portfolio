@@ -1,45 +1,67 @@
 blockquote {
-  border-left-color: #F6B34E;
+    border-left-color: #F6B34E;
 }
 
 .bold {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 .hidden {
-  visibility: hidden;
+    visibility: hidden;
 }
-
 
 .progress {
-  background-color: #ff3e23;
-margin: 0;
-  z-index: 20;
-
-}
-body, html  {
-  padding: 0;
-  margin: 0;
+    background-color: #ff3e23;
+    margin: 0;
+    z-index: 20;
+    /*width: 100%;*/
+    /*height: 100%;*/
 }
 
-#facts i , #featured_projects i {
-  color: #F6B34E;
+.progress-wrapper {
+    position: absolute;
+    background-color: #00001b;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 999;
+    opacity: .97;
+    text-align: center;
+
+}
+
+.progress-wrapper > .preloader-wrapper {
+    position: absolute;
+    top: 50%;
+    /*margin-right: -50%;*/
+    /*transform: translate(-50%, -50%)*/
+}
+
+body, html {
+    padding: 0;
+    margin: 0;
+}
+
+#facts i, #featured_projects i {
+    color: #F6B34E;
 }
 
 .fixed-action-btn > a {
-  background-color: #143056;
-  border: 1px solid #F6B34E;
+    background-color: #143056;
+    border: 1px solid #F6B34E;
 }
+
 .fixed-action-btn > a i {
-  color: #F6B34E;
+    color: #F6B34E;
 }
 
 .fixed-action-btn > a:hover {
-  background-color: #F6B34E;
-  border-color: #143056;
+    background-color: #F6B34E;
+    border-color: #143056;
 }
 
 .fixed-action-btn > a:hover i {
-  color: #143056;
+    color: #143056;
 
 }

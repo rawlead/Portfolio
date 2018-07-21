@@ -5,6 +5,51 @@
     right: 0;
 }
 
+#sidenav-mobile {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    opacity: .9;
+    transition: none;
+    margin: 0;
+}
+
+.sidenav > li {
+    width: auto;
+}
+
+nav a.sidenav-trigger i {
+    /*height: 100px;*/
+    /*margin-top: 10px;*/
+    font-size: 3em;
+
+}
+
+
+
+#sidenav-mobile .sidenav-close{
+    margin: 10px 0;
+    font-size: 1.2em;
+
+}
+
+.sidenav-close-btn {
+    background: none;
+    color: #fff;
+    margin-top: 100px;
+    border: none;
+}
+
+.sidenav-close-btn i {
+    font-size: 4em;
+
+}
+
+.navbar-fixed .btn , #sidenav-mobile .btn {
+    background-color: #F6B34E;
+    color: #00001b;
+}
+
 .brand-logo {
     z-index: -1;
     opacity: 0;
@@ -21,6 +66,10 @@ nav ul a {
 
 nav .active, .sidenav .active {
     color: #F6B34E;
+}
+
+nav .active-hide {
+    display: none;
 }
 
 nav.scrolled {

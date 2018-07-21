@@ -15,6 +15,7 @@ import * as M from "materialize-css";
 // import LoadingIndicator from "../common/LoadingIndicator";
 import {ACCESS_TOKEN} from "../constants";
 import SignupForm from "../user/signup/SignupForm";
+import {FullScreenPreloader} from "../common/FullScreenPreloader";
 
 interface AppState {
     currentUser: any,
@@ -57,7 +58,7 @@ class App extends React.Component<any, AppState> {
                     isLoading: false
                 });
             }).catch(error => {
-            M.toast({html: 'Not logged in'});
+            // M.toast({html: 'Not logged in'});
 
             this.setState({
                 isLoading: false
@@ -100,11 +101,10 @@ class App extends React.Component<any, AppState> {
         // return <LoadingIndicator/>
         return (
 
-            <div>
+            <div style={{minHeight: '100vh'}}>
 
-                {this.state.isLoading && <div className="progress">
-                    <div className="indeterminate"/>
-                </div>}
+                {this.state.isLoading && <FullScreenPreloader/>}
+
 
                 <Navbar isAuthenticated={this.state.isAuthenticated}
                         currentUser={this.state.currentUser}

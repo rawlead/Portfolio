@@ -46,6 +46,7 @@ canvas {
 .hero-text  {
     font-weight: bold;
     color: #F6B34E;
+    margin-top: 0;
     position: relative;
     z-index: 3;
 }
@@ -76,6 +77,7 @@ canvas {
     position: relative;
     z-index: 3;
     font-weight: bold;
+
 }
 
 .home-page-nav h4 a {

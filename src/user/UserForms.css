@@ -6,33 +6,66 @@
     color: #d8d8d8;
 }
 
-.user-form-col {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 50%;
+#g-recaptcha {
+    margin: 10px 0;
 }
 
-.user-form-col h1 {
+#g-recaptcha > div {
+    margin: 0 auto;
+}
+
+.user-form-col {
+    position: absolute;
+    width: 50%;
+    min-height: 100%;
+}
+
+.user-form-col .btn {
+    background-color: #F6B34E;
+    color: #00001b;
+}
+
+.user-form-col h2 {
     color: #d8d8d8;
+    text-align: center;
+}
+
+.user-form-col-left__login {
+    left: 0;
+    background: url("../assets/library-1.jpg") no-repeat center;
+    background-size: cover;
+}
+
+.user-form-col-left__signup {
+    left: 0;
+    background: url("../assets/library-2.jpg") no-repeat center;
+    background-size: cover;
 }
 
 .user-form-col-left-text {
-    /*color: #eceff1;*/
     margin-top: 0;
     text-align: center;
-    color: #fff;
+    color: #9e9e9e;
     z-index: 5;
 
 }
+
 .user-form-col-right {
     right: 0;
     text-align: center;
     min-height: 100vh;
-    background-color: #495867 ;
+    background-color: #143056;
 }
 
-.user-form-col form, .user-form-col-left-text{
+.user-form-col-right .helper-text {
+    text-align: left;
+}
+
+.prefix {
+    color: #9e9e9e;
+}
+
+.user-form-col form, .user-form-col-left-text {
     display: block;
     width: 80%;
     max-width: 500px;
@@ -40,25 +73,9 @@
     top: 50%;
     left: 50%;
     margin-right: -50%;
-    transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%);
+    z-index: 5;
 }
-
-.prefix {
-    color: #9e9e9e;
-}
-
-
-
-
-
-.user-form-col-left {
-    /*background: url("../assets/parallax-night-2.png") no-repeat;*/
-    background: url("../assets/library-1.jpg") no-repeat;
-    left: 0;
-    background-size: cover;
-    background-position: center;
-}
-
 
 .user-form-col-left-cover {
     position: absolute;
@@ -67,34 +84,58 @@
     width: 50%;
     background-color: #000;
     z-index: 3;
-    opacity: .5;
+    opacity: .65;
 }
 
+
+@media screen and (max-width: 992px) {
+
+    .user-form-col-right form {
+    width: 95%;
+}
+
+    .user-form-col {
+    width: 100%;
+}
+
+    .user-form-col-left-cover {
+    opacity: .95;
+    background-color: #143056;
+}
+
+    .user-form-col-right {
+    left: 0;
+}
+
+    .user-form-col-right__signup {
+    background: url("../assets/library-2.jpg") no-repeat center;
+    background-size: cover;
+}
+    .user-form-col-right__login {
+    background: url("../assets/library-1.jpg") no-repeat center;
+    background-size: cover;
+}
+
+
+}
 /* label color */
 .input-field label {
     color: #9e9e9e;
 }
+
 /* label focus color */
 .input-field input[type=text]:focus + label {
     color: #ff3e23;
 }
+
 /* label underline focus color */
-.input-field input[type=text]:focus {
+.input-field-text:hover {
     border-bottom: 3px solid #ff3e23;
     box-shadow: 0 1px 0 0 #000;
 }
 
 /* icon prefix focus color */
 .input-field .prefix.active {
-    color: #d8d8d8;
+    color: #F6B34E;
 }
 
-
-
-@media screen and (max-width: 992px) {
-
-    .user-form-col {
-        width: 100%;
-    }
-
-}

@@ -1,0 +1,11 @@
+#projects-root {
+
+    background-color: #ff3e23;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+#projects-root h1 {
+    /*margin: 0;*/
+    position: relative;
+}

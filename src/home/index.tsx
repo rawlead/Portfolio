@@ -14,17 +14,9 @@ class Home extends React.Component {
     render() {
         return (
             <div id="home-page">
-                {/*<img className="cloud cloud-1 hide-on-small-and-down" src={cloud_1} alt="Cloud 1"/>*/}
-                {/*<img className="cloud cloud-2" src={cloud_2} alt="Cloud 2"/>*/}
-                {/*<img className="cloud cloud-3" src={cloud_3} alt="Cloud 3"/>*/}
-                {/*<img className="cloud cloud-4 hide-on-small-and-down" src={cloud_4} alt="Cloud 4"/>*/}
-
-                {/*<div id="home-page-img" className="home-page-img center-align"/>*/}
-                {/*<div id="particles-js"/>*/}
 
 
                 <div className="home-page-cover"/>
-                <div className="row">
 
                     {/*<div className="col s12 hero-text">*/}
                     {/*</div>*/}
@@ -38,7 +30,6 @@ class Home extends React.Component {
                     </div>
                 </div>
 
-            </div>
         )
     }
 }
