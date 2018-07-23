@@ -1,5 +1,5 @@
 
-#home-page {
+#home-page-root {
     min-height: 100vh;
     text-align: center;
     position: relative;
@@ -7,47 +7,6 @@
     background-size: cover;
     padding-top: 60px;
     overflow: hidden;
-}
-
-canvas {
-    display: block;
-    vertical-align: bottom;
-}
-#home-page > .row {
-    margin-bottom: 0;
-}
-
-
-.hero-text {
-    opacity: .95;
-}
-
-h1.hero-text  {
-    margin: 0 30px;
-    color: #FF3E23;
-    position: relative;
-    z-index: 3;
-    vertical-align: middle;
-    text-align: center;
-
-
-    background: linear-gradient(110deg, #F6B34E 31%, rgba(0, 0, 0, 0) 31%), linear-gradient(110deg, #f2f2f2 36%, #ff3e23 36%);
-    background-size: 500%;
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    background-position: 30% 50%
-
-}
-
-
-
-.home-page-nav {
-    z-index: 3;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%)
 }
 
 .home-page-cover {
@@ -60,16 +19,56 @@ h1.hero-text  {
     opacity: .6;
 }
 
-.home-page-nav h4 {
+.hero-text-wrapper {
+    z-index: 3;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+.hero-text-wrapper h1.hero-text {
+    margin: 0 30px;
+    /*color: #FF3E23;*/
     position: relative;
     z-index: 3;
-    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(110deg, #ff3e23 32%, rgba(0, 0, 0, 0) 32%),
+    linear-gradient(110deg, #F6B34E 69%, #f2f2f2 69%);
+    /*background-size: 300%;*/
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    /*background-position: 28% 50%*/
 }
 
-.home-page-nav h4 a {
-    transition: opacity 200ms ease;
+.hero-text-typewrite {
+    opacity: .95;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid orange; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    animation: typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
 }
 
-.home-page-nav h4 a:hover {
-    opacity: .75;
+/* The typing effect */
+@keyframes typing {
+    from {
+        width: 0
+    }
+    to {
+        width: 100%
+    }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent
+    }
+    50% {
+        border-color: #F6B34E;
+    }
 }

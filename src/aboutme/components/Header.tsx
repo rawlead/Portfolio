@@ -14,7 +14,7 @@ const Header = () => (
               parallaxImgStyle={"parallax parallax__top"} parallaxContainerId="">
 
         <div className="caption parallax-caption center-align">
-            <h3>About Me</h3>
+            <h3>Ivan Shyrai</h3>
             <h6>Full-Stack Web Developer</h6>
         </div>
 

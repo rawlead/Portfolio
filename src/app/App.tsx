@@ -16,6 +16,7 @@ import * as M from "materialize-css";
 import {ACCESS_TOKEN} from "../constants";
 import SignupForm from "../user/signup/SignupForm";
 import {FullScreenPreloader} from "../common/FullScreenPreloader";
+import Resume from "../resume";
 
 interface AppState {
     currentUser: any,
@@ -117,6 +118,8 @@ class App extends React.Component<any, AppState> {
                 <Route path="/login" render={this.renderLoginForm}/>
 
                 <Route path="/signup" render={this.renderSignupForm}/>
+
+                <Route path="/resume" component={Resume}/>
                 <FloatingActionButton/>
             </div>
 

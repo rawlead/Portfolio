@@ -76,10 +76,10 @@ class NavbarTop extends React.Component<NavbarTopProps, NavbarTopState> {
                                                      activeClassName="active-hide"
                                                      className="btn waves-effect hide-on-med-and-down">Login</NavLink>
                                         </li>
-                                        <li>
-                                            <NavLink to="/signup" activeClassName="active-hide"
-                                                     className="btn waves-effect hide-on-med-and-down">Signup</NavLink>
-                                        </li>
+                                        {/*<li>*/}
+                                            {/*<NavLink to="/signup" activeClassName="active-hide"*/}
+                                                     {/*className="btn waves-effect hide-on-med-and-down">Signup</NavLink>*/}
+                                        {/*</li>*/}
                                     </ul>)
                             }
                         </div>

@@ -1,0 +1,12 @@
+#resume-root {
+    background-color: #143056;
+    min-height: 100vh;
+}
+
+#resume-root iframe {
+    width: 100%;
+    display: block;
+    min-height: 100vh;
+    background-color: #f2f2f2;
+    border-top: solid 65px #143056;
+}

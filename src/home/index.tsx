@@ -13,24 +13,15 @@ class Home extends React.Component {
 
     render() {
         return (
-            <div id="home-page">
-
-
+            <div id="home-page-root">
                 <div className="home-page-cover"/>
 
-                    {/*<div className="col s12 hero-text">*/}
-                    {/*</div>*/}
-
-                    <div className="home-page-nav">
-                        <h1 className="hero-text">Ivan Shyrai</h1>
-                        <h6  className="hero-text" style={{color: "#f2f2f2", opacity: .75}}>Full-Stack Web Developer</h6>
-                        {/*<br/>*/}
-                        {/*<br/>*/}
-                        {/*<h4><Link to="/projects" className="hero-text" style={{color: "#f2f2f2"}}>Projects</Link></h4>*/}
-                        {/*<h4><Link to="/aboutMe"  className="hero-text" style={{color: "#f2f2f2"}}>About Me</Link></h4>*/}
-                        {/*<h4><Link to="/resume"  className="hero-text" style={{color: "#f2f2f2"}}>Resume</Link></h4>*/}
-                    </div>
+                <div className="hero-text-wrapper">
+                    <h1 className="hero-text">Ivan Shyrai</h1>
+                    <h5 className="hero-text-typewrite" style={{color: "#f2f2f2", opacity: .75}}>Full-Stack Web
+                        Developer</h5>
                 </div>
+            </div>
 
         )
     }
