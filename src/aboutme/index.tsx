@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import footer_img from '../assets/ny.png';
+import footer_img from '../assets/ny-t.png';
 
 import Header from './components/Header';
 import ScrollSpy from './components/ScrollSpy';

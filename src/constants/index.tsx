@@ -1,5 +1,4 @@
 // HEROKU
-// export const API_BASE_URL = 'https://is-portfolio-server.herokuapp.com/api';
 export const API_BASE_URL = 'https://portfolio-client.herokuapp.com/api';
 
 // LOCAL

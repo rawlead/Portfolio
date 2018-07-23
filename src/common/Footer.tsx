@@ -82,12 +82,12 @@ class Footer extends React.Component {
                         </div>
 
                         <div className="col s12 m2">
-                            <h3 className="white-text"><i className="far fa-compass fa-spin"/></h3>
+                            <h3><i className="far fa-compass fa-spin"/></h3>
                             <ul>
-                                <li><a className="grey-text text-lighten-3" href="/">Home</a></li>
-                                <li><a className="grey-text text-lighten-3" href="/">Projects</a></li>
-                                <li><a className="grey-text text-lighten-3" href="/">Dev</a></li>
-                                <li><a className="grey-text text-lighten-3" href="/">More</a></li>
+                                <li><a href="/">Home</a></li>
+                                <li><a href="/">Projects</a></li>
+                                <li><a href="/">Dev</a></li>
+                                <li><a href="/">More</a></li>
                             </ul>
                         </div>
                         <div className="col s12">

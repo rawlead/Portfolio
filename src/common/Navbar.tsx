@@ -21,6 +21,9 @@ class NavbarTop extends React.Component<NavbarTopProps, NavbarTopState> {
     componentDidMount() {
         this.styleTopnavOnScroll();
         M.Dropdown.init(this.dropdown)
+
+
+
     }
 
     styleTopnavOnScroll() {
@@ -32,7 +35,7 @@ class NavbarTop extends React.Component<NavbarTopProps, NavbarTopState> {
                 return;
             }
 
-            if (currentScrollPos > nav.clientHeight + 120) {
+            if (currentScrollPos > nav.clientHeight + 220) {
                 nav.classList.add("scrolled")
             } else {
                 nav.classList.remove("scrolled");

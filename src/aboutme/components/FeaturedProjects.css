@@ -2,6 +2,9 @@
     padding: 5px 20px;
     font-weight: bold;
 }
+.slider .slides li .caption {
+    color: #f2f2f2;
+}
 
 .slider h3 {
     color: #F6B34E;
@@ -16,6 +19,7 @@
 
 .slider .caption {
     padding-top: 100px;
+    color: red;
 }
 
 .slider .indicators .indicator-item.active {
@@ -44,7 +48,7 @@
     left: 15%;
     padding: 10px;
     z-index: 10;
-    color: white;
+    color: #f2f2f2;
 }
 
 #featured_projects_wrapper {

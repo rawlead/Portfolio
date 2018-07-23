@@ -8,10 +8,11 @@ table.striped>tbody>tr:nth-child(odd) {
     z-index: 3;
     position: relative;
     /*margin-bottom: 500px;*/
+    color: #f2f2f2;
+
 }
 
 #skills table {
-    color: #fff;
     margin-bottom: 50px;
 }
 

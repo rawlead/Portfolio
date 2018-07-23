@@ -24,8 +24,7 @@ class Introduction extends React.Component {
                             <p>this is my website, where you can find my projects, information about me and more.</p>
                             <p>I am available for hire and open to any ideas of cooperation.</p>
                         </div>
-                        <div className="main-img z-depth-4"/>
-
+                        <div className="main-img  z-depth-4"/>
                     </div>
                 </div>
             </div>

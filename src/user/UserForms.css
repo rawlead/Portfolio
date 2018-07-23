@@ -3,7 +3,7 @@
 }
 
 .input-field input {
-    color: #d8d8d8;
+    color: #f2f2f2;
 }
 
 #g-recaptcha {
@@ -26,7 +26,7 @@
 }
 
 .user-form-col h2 {
-    color: #d8d8d8;
+    color: #f2f2f2;
     text-align: center;
 }
 
@@ -45,9 +45,11 @@
 .user-form-col-left-text {
     margin-top: 0;
     text-align: center;
-    color: #9e9e9e;
+    color: #f2f2f2;
     z-index: 5;
-
+}
+.user-form-col-left-text h4 {
+    opacity: .75;
 }
 
 .user-form-col-right {
@@ -62,7 +64,7 @@
 }
 
 .prefix {
-    color: #9e9e9e;
+    color: #f2f2f2;
 }
 
 .user-form-col form, .user-form-col-left-text {
@@ -121,7 +123,7 @@
 }
 /* label color */
 .input-field label {
-    color: #9e9e9e;
+    color: #f2f2f2;
 }
 
 /* label focus color */

@@ -116,7 +116,7 @@
 
                             <div className="user-form-col-left-text">
                                 <h2>Welcome!</h2>
-                                <h3>Please Login</h3>
+                                <h4>Please Login</h4>
                                 <p><Link className="amber-text" to="/signup">Or create new account</Link></p>
                             </div>
 

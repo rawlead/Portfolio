@@ -159,7 +159,7 @@ class SignupForm extends React.Component<any, SignupFormState> {
                     <div className="user-form-col-left-text">
 
                         <h2>Welcome!</h2>
-                        <h3>Please Sign Up</h3>
+                        <h4>Please Sign Up</h4>
                         <p><Link className="amber-text" to="/login">Or login to existing account</Link></p>
                     </div>
 

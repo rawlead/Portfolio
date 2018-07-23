@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 
 // import cloud_1 from '../assets/cloud-1.png';
 // import cloud_2 from '../assets/cloud-2.png';
@@ -22,11 +22,13 @@ class Home extends React.Component {
                     {/*</div>*/}
 
                     <div className="home-page-nav">
-                        <h1 className="hero-text">IVAN SHYRAI</h1>
-                        <h4><Link to="/projects" style={{color: "#4BBDAC"}}>Projects</Link></h4>
-                        {/*<h2><a style={{color: "#FFD39B"}} href="/">Projects</a></h2>*/}
-                        <h4><Link to="/aboutMe" style={{color: "#FF3E23"}}>About Me</Link></h4>
-                        <h4><Link to="/resume" style={{color: "#FFD39B"}}>Resume</Link></h4>
+                        <h1 className="hero-text">Ivan Shyrai</h1>
+                        <h6  className="hero-text" style={{color: "#f2f2f2", opacity: .75}}>Full-Stack Web Developer</h6>
+                        {/*<br/>*/}
+                        {/*<br/>*/}
+                        {/*<h4><Link to="/projects" className="hero-text" style={{color: "#f2f2f2"}}>Projects</Link></h4>*/}
+                        {/*<h4><Link to="/aboutMe"  className="hero-text" style={{color: "#f2f2f2"}}>About Me</Link></h4>*/}
+                        {/*<h4><Link to="/resume"  className="hero-text" style={{color: "#f2f2f2"}}>Resume</Link></h4>*/}
                     </div>
                 </div>
 

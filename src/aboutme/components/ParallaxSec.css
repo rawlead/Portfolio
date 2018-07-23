@@ -5,7 +5,7 @@
 
 .parallax__container__bottom {
     height: 700px;
-    background-color: #fff;
+    background-color: #f2f2f2;
 }
 
 .parallax img {
@@ -13,7 +13,7 @@
 }
 
 .parallax-container {
-    background-color: #fff;
+    background-color: #f2f2f2;
 
 }
 
@@ -41,4 +41,5 @@
 
 .parallax-caption {
     position: relative;
+    color: #f2f2f2;
 }
