@@ -17,6 +17,7 @@ import {ACCESS_TOKEN} from "../constants";
 import SignupForm from "../user/signup/SignupForm";
 import {FullScreenPreloader} from "../common/FullScreenPreloader";
 import Resume from "../resume";
+import Profile from "../profile";
 
 interface AppState {
     currentUser: any,
@@ -120,6 +121,8 @@ class App extends React.Component<any, AppState> {
                 <Route path="/signup" render={this.renderSignupForm}/>
 
                 <Route path="/resume" component={Resume}/>
+
+                <Route path="/profile" component={Profile}/>
                 <FloatingActionButton/>
             </div>
 

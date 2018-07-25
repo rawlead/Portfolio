@@ -1,4 +1,4 @@
-import { API_BASE_URL, ACCESS_TOKEN } from "../constants";
+import {API_BASE_URL, ACCESS_TOKEN, USER_LIST_SIZE} from "../constants";
 
 const request = (options : any) => {
     const headers = new Headers({
@@ -63,6 +63,16 @@ export function getCurrentUser() {
 
     return request({
         url: API_BASE_URL + "/user/me",
+        method: 'GET'
+    });
+}
+
+export function getAllUsers(page : number, size : number) {
+    page = page || 0;
+    size = size || USER_LIST_SIZE;
+
+    return request({
+        url: API_BASE_URL + "/users?page=" + page + "&size=" + size,
         method: 'GET'
     });
 }
