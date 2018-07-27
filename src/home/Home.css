@@ -1,12 +1,18 @@
-
 #home-page-root {
-    min-height: 100vh;
     text-align: center;
-    position: relative;
+    /*position: relative;*/
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: -1;
     background: #143056 url("../assets/barcelona-1.jpg") no-repeat center;
     background-size: cover;
-    padding-top: 60px;
-    overflow: hidden;
+    /*min-height: 100%;*/
+    min-height: 100%
+    /*padding-top: 60px;*/
+    /*overflow: hidden;*/
 }
 
 .home-page-cover {
@@ -30,24 +36,21 @@
 
 .hero-text-wrapper h1.hero-text {
     margin: 0 30px;
-    /*color: #FF3E23;*/
     position: relative;
     z-index: 3;
     text-align: center;
-    background: linear-gradient(110deg, #ff3e23 32%, rgba(0, 0, 0, 0) 32%),
-    linear-gradient(110deg, #F6B34E 69%, #f2f2f2 69%);
-    /*background-size: 300%;*/
+    background: linear-gradient(110deg, #ff3e23 40%, rgba(0, 0, 0, 0) 40%),
+    linear-gradient(110deg, #F6B34E 60%, #f2f2f2 60%);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
-    /*background-position: 28% 50%*/
 }
 
 .hero-text-typewrite {
     opacity: .95;
     overflow: hidden; /* Ensures the content is not revealed until the animation */
-    border-right: .15em solid orange; /* The typwriter cursor */
-    white-space: nowrap; /* Keeps the content on a single line */
-    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    border-right: .15em solid #f2f2f2; /* The typwriter cursor */
+    white-space:nowrap ; /* Keeps the content on a single line */
+    margin: 20px auto 0 auto; /* Gives that scrolling effect as the typing happens */
     letter-spacing: .15em; /* Adjust as needed */
     animation: typing 3.5s steps(40, end),
     blink-caret .75s step-end infinite;
@@ -69,6 +72,13 @@
         border-color: transparent
     }
     50% {
-        border-color: #F6B34E;
+        border-color: #f2f2f2;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .hero-text-typewrite {
+        font-size: 14px;
+        animation: none;
     }
 }

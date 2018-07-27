@@ -1,8 +1,9 @@
 #projects-root {
 
-    background-color: #ff3e23;
+
+    background-color: #f2f2f2;
     min-height: 100vh;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 #projects-root h1 {

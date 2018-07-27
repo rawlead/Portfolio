@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { USER_LIST_SIZE} from '../../constants'
+import {USER_LIST_SIZE} from '../../constants'
 import {getAllUsers} from "../../util/APIUtils";
 import User from "./User";
+import LoadingIndicator from "../../common/LoadingIndicator";
 
 interface UserListState {
     users: any,
@@ -9,14 +10,14 @@ interface UserListState {
     size: number,
     totalElements: number,
     totalPages: number,
-    last : boolean,
+    last: boolean,
     currentUsers: any,
     isLoading: boolean
 }
 
 class UserList extends React.Component<any, UserListState> {
 
-    constructor(props : any) {
+    constructor(props: any) {
         super(props);
         this.state = {
             users: [],
@@ -29,7 +30,7 @@ class UserList extends React.Component<any, UserListState> {
             isLoading: false
         };
         this.loadUserList = this.loadUserList.bind(this);
-        // this.handleLoadMore = this.handleLoadMore.bind(this);
+        this.handleLoadMore = this.handleLoadMore.bind(this);
     }
 
     componentWillMount() {
@@ -45,10 +46,10 @@ class UserList extends React.Component<any, UserListState> {
         //         promise = getUserVotedPolls(this.props.username, page, size);
         //     }
         // } else {
-            promise = getAllUsers(page, size);
+        promise = getAllUsers(page, size);
         // }
 
-        if(!promise) {
+        if (!promise) {
             return;
         }
 
@@ -78,25 +79,45 @@ class UserList extends React.Component<any, UserListState> {
         });
     }
 
-    // handleLoadMore() {
-    //     return;
-    // }
+    handleLoadMore() {
+        this.loadUserList(this.state.page + 1);
+    }
 
     render() {
-        const userViews : any = [];
-        this.state.users.forEach((user : any, userIndex : number) => {
+        const userViews: any = [];
+        this.state.users.forEach((user: any, userIndex: number) => {
             userViews.push(<User
                 key={user.id}
                 user={user}
-              />)
+            />)
         });
         return (
-            <div>
-            <h3>UserList</h3>
-                {userViews}
-            </div>
+
+            <React.Fragment>
+                <div className="user-list container">
+                    {userViews}
+
+                    {
+                        this.state.isLoading ?
+                            <LoadingIndicator />: null
+                    }
+                </div>
+
+                {!this.state.isLoading && !this.state.last ?
+
+                    (<div className="load-more-polls container">
+                        <button className="btn black" type="dashed" onClick={this.handleLoadMore}
+                                disabled={this.state.isLoading}>
+                            Load more
+                        </button>
+                    </div>) : null
+                }
+
+
+            </React.Fragment>
         )
     }
 
 }
+
 export default UserList;

@@ -4,7 +4,10 @@ import './Projects.css';
 const Projects = () => (
 
     <div id="projects-root">
-    <h1>Projects</h1>
+
+
+        <div className="fake-nav-background"/>
+        {/*<h1>Projects</h1>*/}
     </div>
 )
 

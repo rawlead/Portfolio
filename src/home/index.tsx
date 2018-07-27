@@ -17,9 +17,9 @@ class Home extends React.Component {
                 <div className="home-page-cover"/>
 
                 <div className="hero-text-wrapper">
-                    <h1 className="hero-text">Ivan Shyrai</h1>
-                    <h5 className="hero-text-typewrite" style={{color: "#f2f2f2", opacity: .75}}>Full-Stack Web
-                        Developer</h5>
+                    <h1 className="hero-text">Ivan<br/>Shyrai</h1>
+
+                    <h5 className="hero-text-typewrite" style={{color: "#f2f2f2", opacity: .75}}>Java Software Developer</h5>
                 </div>
             </div>
 

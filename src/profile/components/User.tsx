@@ -1,16 +1,12 @@
 import * as React from 'react';
 
 const User = (props: any) => (
-    <div>
-        {props.user.id}
-        <br/>
+    <div className="user-list-item hoverable">
+        <p><b>ID:</b> {props.user.id}</p>
 
-        {props.user.name}
-        <br/>
+        <p><b>FULL NAME:</b> {props.user.name}</p>
 
-        {props.user.username}
-        <br/>
-        <br/>
+        <p><b>USERNAME:</b> {props.user.username}</p>
     </div>
 )
 export default User;

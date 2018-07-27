@@ -9,6 +9,36 @@ blockquote {
 .hidden {
     visibility: hidden;
 }
+.toast {
+    background-color: #f6b34e !important;
+    color: #00001B !important;
+}
+
+#root {
+    min-height: 100%;
+    /*position: relative;*/
+}
+
+
+.fake-nav-background {
+    position: absolute;
+    height: 50px;
+    background-color: #143056;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+}
+
+.fake-nav-background-aboutme {
+    background: url("../assets/nav.gif");
+    background-size: contain;
+}
+
+
+.row {
+    margin-bottom: 0;
+}
 
 .progress {
     background-color: #ff3e23;
@@ -18,16 +48,18 @@ blockquote {
 
 .progress-wrapper {
     position: absolute;
-    background-color: #000;
+    background-color: #00001B;
     top: 0;
     bottom: 0;
     right: 0;
     left: 0;
     z-index: 999;
-    opacity: .5;
+    /*opacity: .5;*/
     text-align: center;
 
 }
+
+
 
 .progress-wrapper > .preloader-wrapper {
     position: absolute;
@@ -36,10 +68,18 @@ blockquote {
     /*transform: translate(-50%, -50%)*/
 }
 
+.preloader-wrapper {
+    margin-top: 10px;
+}
+
 body, html {
     padding: 0;
     margin: 0;
     font-family: 'Maven Pro', sans-serif;
+}
+
+body, html {
+    height: 100%;
 }
 
 #facts i, #featured_projects i {

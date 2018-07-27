@@ -107,7 +107,7 @@ class App extends React.Component<any, AppState> {
 
     render() {
         return (
-            <div style={{minHeight: '100vh'}}>
+            <React.Fragment>
 
                 <LoginForm onLogin={this.handleLogin}/>
                 <SignupForm onSignup={this.handleSignup}/>
@@ -127,7 +127,7 @@ class App extends React.Component<any, AppState> {
 
                 <Route path="/profile" component={Profile}/>
                 <FloatingActionButton/>
-            </div>
+            </React.Fragment>
 
         )
 

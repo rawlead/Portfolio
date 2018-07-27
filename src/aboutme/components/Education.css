@@ -5,17 +5,18 @@
     margin-bottom: 0px;
     padding-top: 100px;
     z-index: 2;
+display: block;
+    padding-bottom: 0 !important;
 }
 .education-img {
     max-height: 350px;
-    margin: 70px 0;
+    margin: 60px 0;
 }
 
-#education:before {
-    /*height: 200px;*/
-    width: 100%;
-    z-index: 1;
-}
+/*#education:before {*/
+    /*width: 100%;*/
+    /*z-index: 1;*/
+/*}*/
 
 
 #education h3, h6 {
@@ -26,9 +27,9 @@
 .night-bottom {
     position: absolute;
     width: 100%;
-    bottom: -200px;
+    bottom: -120px;
     z-index: 1;
-    background: transparent;
+    /*background: transparent;*/
 }
 
 
@@ -36,4 +37,9 @@
     #education .container {
         padding-top: 30px;
     }
-}
+
+    .night-bottom {
+        bottom: 100px;
+
+    }
+    }

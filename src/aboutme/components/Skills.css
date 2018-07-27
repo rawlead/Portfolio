@@ -9,11 +9,12 @@ table.striped>tbody>tr:nth-child(odd) {
     position: relative;
     /*margin-bottom: 500px;*/
     color: #f2f2f2;
+    display: block;
 
 }
 
 #skills table {
-    margin-bottom: 50px;
+    margin-bottom: 0px;
 }
 
 .night__edge--img {

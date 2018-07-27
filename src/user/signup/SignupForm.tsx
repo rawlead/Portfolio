@@ -220,14 +220,14 @@ class SignupForm extends React.Component<any, SignupFormState> {
 
                             <div className="input-field">
                                 <i className="material-icons prefix">lock</i>
-                                <input id="password"
+                                <input id="password-signup"
                                        name="password"
                                        type="password"
                                        autoComplete="off"
                                        onChange={this.handleInputChange}
                                        value={password.value}
                                 />
-                                <label htmlFor="password">Password</label>
+                                <label htmlFor="password-signup">Password</label>
 
                                 <span
                                     className={this.validateMsgStyle(password.validateStatus)}>{password.validateMsg}</span>

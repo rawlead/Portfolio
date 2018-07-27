@@ -40,13 +40,13 @@ class NavbarTop extends React.Component<NavbarTopProps, any> {
     render() {
         return (
             <div>
-                <div className="navbar-fixed">
+                {/*<div className="navbar-fixed">*/}
                     <nav id="nav">
                         <div className="nav-wrapper">
                             <a href="#" data-target="sidenav-mobile" className="sidenav-trigger left"><i
                                 className="material-icons">menu</i></a>
 
-                            <Link to="/" className="brand-logo center">IS</Link>
+                            <Link to="/" className="brand-logo center hide-on-small-only">IS</Link>
                             <ul className="left hide-on-med-and-down">
                                 <li><NavLink exact={true} to="/" activeClassName="active">Home</NavLink></li>
                                 <li><NavLink to="/projects" activeClassName="active">Projects</NavLink></li>
@@ -70,7 +70,7 @@ class NavbarTop extends React.Component<NavbarTopProps, any> {
                                     <li>
                                         <button
                                             data-target="form-modal-signup"
-                                            className="btn waves-effect btn-small modal-trigger">Sign
+                                            className="btn waves-effect btn-small modal-trigger hide-on-med-and-down">Sign
                                             up
                                         </button>
                                     </li>
@@ -99,8 +99,9 @@ class NavbarTop extends React.Component<NavbarTopProps, any> {
                                                     className="fas fa-sign-out-alt"/> Log out</Link>
                                             </React.Fragment>
                                         ) : (
-                                            <button data-target="form-modal-login"
-                                                    className="waves-effect btn hide-on-med-and-down modal-trigger">Log
+                                            <button
+                                                data-target="form-modal-login"
+                                                    className="waves-effect btn modal-trigger">Log
                                                 in / Sign up
                                             </button>
                                         )}
@@ -110,7 +111,7 @@ class NavbarTop extends React.Component<NavbarTopProps, any> {
 
                         </div>
                     </nav>
-                </div>
+                {/*</div>*/}
 
                 <NavbarSide
                     isAuthenticated={this.props.isAuthenticated}
