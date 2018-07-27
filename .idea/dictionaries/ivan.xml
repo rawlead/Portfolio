@@ -2,9 +2,13 @@
   <dictionary name="ivan">
     <words>
       <w>linter</w>
+      <w>navbar</w>
+      <w>onscroll</w>
       <w>recaptcha</w>
       <w>scrollspy</w>
       <w>sidenav</w>
+      <w>signup</w>
+      <w>topnav</w>
       <w>tslint</w>
     </words>
   </dictionary>

@@ -10,7 +10,7 @@ import {
     USERNAME_MAX_LENGTH,
     USERNAME_MIN_LENGTH
 } from "../../constants";
-import {Link} from "react-router-dom";
+// import {Link} from "react-router-dom";
 import * as Recaptcha from "react-recaptcha";
 
 interface SignupFormState {
@@ -58,6 +58,7 @@ class SignupForm extends React.Component<any, SignupFormState> {
         this.validateMsgStyle = this.validateMsgStyle.bind(this);
         this.isFormInvalid = this.isFormInvalid.bind(this);
         this.recaptchaVerifyCallback = this.recaptchaVerifyCallback.bind(this);
+        this.recaptchaOnloadCallback = this.recaptchaOnloadCallback.bind(this);
     }
 
     handleInputChange(event: any) {
@@ -121,8 +122,8 @@ class SignupForm extends React.Component<any, SignupFormState> {
 
         signup(signupRequest)
             .then(response => {
-                M.toast({html: 'Thank you! You\'re successfully registered. Please Login to continue!'});
-                this.props.onSignup();
+                M.toast({html: `Thank you, ${username.value} ! You\'re successfully registered.`});
+                this.props.onSignup(this.state.username.value, this.state.password.value);
                 this.setState({isLoading: false})
             }).catch(error => {
             M.toast({html: error.message});
@@ -136,12 +137,13 @@ class SignupForm extends React.Component<any, SignupFormState> {
         if (validateStatus === "success") {
             styling += "green-text"
         } else if (validateStatus === "error") {
-            styling += "red-text"
+            styling += "red-text lighten-1"
         } else if (validateStatus === "validating") {
             styling += "yellow-text"
         }
         return styling;
     }
+
 
     recaptchaVerifyCallback(response: any) {
         if (response) {
@@ -149,103 +151,109 @@ class SignupForm extends React.Component<any, SignupFormState> {
         }
     }
 
+    recaptchaOnloadCallback() {
+        return;
+    }
+
     render() {
         const {name, username, email, password} = this.state;
         return (
-            <div style={{minHeight: '100vh'}}>
-                <div className="user-form-col user-form-col-left-cover"/>
 
-                <div className="hide-on-med-and-down  user-form-col user-form-col-left__signup">
-                    <div className="user-form-col-left-text">
+            <div id="form-modal-signup" className="modal form-modal ">
+                <button className="user-form-modal-close btn-flat modal-close"><i
+                    className="fas fa-times"/>
+                </button>
+                <div id="signup-root">
+                    <div className="user-form-col-img user-form-col-img__signup"/>
 
-                        <h2>Welcome!</h2>
-                        <h4>Please Sign Up</h4>
-                        <p><Link className="amber-text" to="/login">Or login to existing account</Link></p>
+                    <div className="user-form-col user-form-col__signup">
+
+                        <form onSubmit={this.handleSubmit}>
+                            <h5 className="center-align">Sign up</h5>
+
+                            <div className="input-field">
+                                <i className="material-icons prefix">account_box</i>
+                                <input id="name"
+                                       name="name"
+                                       type="text"
+                                       autoComplete="off"
+                                       onChange={this.handleInputChange}
+                                       value={name.value}
+                                />
+                                <label htmlFor="name">Full Name</label>
+
+                                <span className={this.validateMsgStyle(name.validateStatus)}>{name.validateMsg}</span>
+                            </div>
+
+                            <div className="input-field">
+                                <i className="material-icons prefix">account_circle</i>
+                                <input id="username"
+                                       name="username"
+                                       type="text"
+                                       autoComplete="off"
+                                       onChange={this.handleInputChange}
+                                       value={username.value}
+                                       onBlur={this.validateUsernameAvailability}
+                                />
+                                <label htmlFor="username">Username</label>
+
+                                <span
+                                    className={this.validateMsgStyle(username.validateStatus)}>{username.validateMsg}</span>
+                            </div>
+
+                            <div className="input-field">
+                                <i className="material-icons prefix">email</i>
+                                <input id="email"
+                                       name="email"
+                                       type="email"
+                                       autoComplete="off"
+                                       onChange={this.handleInputChange}
+                                       value={email.value}
+                                       onBlur={this.validateEmailAvailability}
+                                       data-length="10"
+                                />
+                                <label htmlFor="email">Email</label>
+
+                                <span className={this.validateMsgStyle(email.validateStatus)}>{email.validateMsg}</span>
+
+                            </div>
+
+                            <div className="input-field">
+                                <i className="material-icons prefix">lock</i>
+                                <input id="password"
+                                       name="password"
+                                       type="password"
+                                       autoComplete="off"
+                                       onChange={this.handleInputChange}
+                                       value={password.value}
+                                />
+                                <label htmlFor="password">Password</label>
+
+                                <span
+                                    className={this.validateMsgStyle(password.validateStatus)}>{password.validateMsg}</span>
+                            </div>
+
+                            <Recaptcha
+                                sitekey={RECAPTCHA_SITE_KEY}
+                                render="explicit"
+                                verifyCallback={this.recaptchaVerifyCallback}
+                                onloadCallback={this.recaptchaOnloadCallback}
+                            />
+
+                            {this.state.isLoading ?
+                                (<LoadingIndicator/>) :
+                                (<button type="submit"
+                                         className="btn waves-effect center-align"
+                                         disabled={this.isFormInvalid()}>
+                                    <i className="material-icons right">send</i>
+                                    Submit
+                                </button>)}
+
+                            <button data-target="form-modal-login"
+                                    className="modal-close right form-switch-btn modal-trigger">Or Log in
+                            </button>
+                        </form>
                     </div>
-
-                </div>
-
-                <div className="user-form-col user-form-col-right user-form-col-right__signup">
-
-                    <form onSubmit={this.handleSubmit} className="col s12 l6">
-                        <h2>Signup</h2>
-                        <div className="input-field">
-                            <i className="material-icons prefix">account_box</i>
-                            <input id="name"
-                                   name="name"
-                                   type="text"
-                                   autoComplete="off"
-                                   onChange={this.handleInputChange}
-                                   value={name.value}
-                            />
-                            <label htmlFor="name">Full Name</label>
-
-                            <span className={this.validateMsgStyle(name.validateStatus)}>{name.validateMsg}</span>
-                        </div>
-
-                        <div className="input-field">
-                            <i className="material-icons prefix">account_circle</i>
-                            <input id="username"
-                                   name="username"
-                                   type="text"
-                                   autoComplete="off"
-                                   onChange={this.handleInputChange}
-                                   value={username.value}
-                                   onBlur={this.validateUsernameAvailability}
-                            />
-                            <label htmlFor="username">Username</label>
-
-                            <span
-                                className={this.validateMsgStyle(username.validateStatus)}>{username.validateMsg}</span>
-                        </div>
-
-                        <div className="input-field">
-                            <i className="material-icons prefix">email</i>
-                            <input id="email"
-                                   name="email"
-                                   type="email"
-                                   autoComplete="off"
-                                   onChange={this.handleInputChange}
-                                   value={email.value}
-                                   onBlur={this.validateEmailAvailability}
-                                   data-length="10"
-                            />
-                            <label htmlFor="email">Email</label>
-
-                            <span className={this.validateMsgStyle(email.validateStatus)}>{email.validateMsg}</span>
-
-                        </div>
-
-                        <div className="input-field">
-                            <i className="material-icons prefix">lock</i>
-                            <input id="password"
-                                   name="password"
-                                   type="password"
-                                   autoComplete="off"
-                                   onChange={this.handleInputChange}
-                                   value={password.value}
-                            />
-                            <label htmlFor="password">Password</label>
-
-                            <span
-                                className={this.validateMsgStyle(password.validateStatus)}>{password.validateMsg}</span>
-                        </div>
-
-                        <Recaptcha
-                            sitekey={RECAPTCHA_SITE_KEY}
-                            render="explicit"
-                            verifyCallback={this.recaptchaVerifyCallback}
-                        />
-
-                        {this.state.isLoading ?
-                            (<LoadingIndicator/>) :
-                            (<button type="submit"
-                                     className="btn waves-effect"
-                                     disabled={this.isFormInvalid()}>
-                                <i className="material-icons right">send</i>
-                                Submit
-                            </button>)}
-                    </form>
                 </div>
             </div>
         )

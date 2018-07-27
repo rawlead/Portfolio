@@ -3,7 +3,6 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 50px;
 }
 
 #sidenav-mobile {
@@ -20,17 +19,57 @@
 }
 
 nav a.sidenav-trigger i {
-    /*height: 100px;*/
-    /*margin-top: 10px;*/
-    font-size: 3em;
 
+    font-size: 35px;
+
+}
+.nav-dropdown-btn {
+    transition: color 300ms;
+}
+
+.nav-dropdown-content {
+    display: none;
+    background-color: #f2f2f2;
+    border: 1px solid #143056;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+}
+
+.nav-dropdown-content a {
+    color: #143056;
+    display: block;
+}
+
+.nav-dropdown-content a i {
+    font-size: 14px;
 }
 
 
 
-#sidenav-mobile .sidenav-close{
+
+.nav-dropdown-btn:hover {
+    /*background-color: #143056;*/
+}
+
+.nav-dropdown-content a:hover {
+    background-color: #fff;
+    color: #143056;
+}
+
+.nav-dropdown:hover .nav-dropdown-content {
+    display: block;
+}
+
+.nav-dropdown:hover .nav-dropdown-btn {
+    /*background-color: #143056;*/
+    color: #F6B34E;
+}
+
+#sidenav-mobile .sidenav-close {
     margin: 10px 0;
-    font-size: 1.2em;
+    font-weight: bold;
+    font-size: 1.1em;
 
 }
 
@@ -46,9 +85,25 @@ nav a.sidenav-trigger i {
 
 }
 
-.navbar-fixed .btn , #sidenav-mobile .btn {
+.navbar-fixed .btn, #sidenav-mobile .btn {
     background-color: #F6B34E;
     color: #00001b;
+}
+
+
+.navbar-fixed .btn-flat {
+    border: 1px solid #f2f2f2;
+    color: #f2f2f2;
+}
+
+
+.navbar-fixed .btn:hover {
+    background-color: #ff3e23;
+}
+
+.navbar-fixed .btn-flat:hover {
+    color: #ff3e23 !important;
+    border-color: #ff3e23 !important;
 }
 
 .brand-logo {
@@ -60,11 +115,32 @@ nav {
     background-color: transparent;
     box-shadow: none;
     transition: background-color 1s;
-    /*opacity: .95;*/
+    height: 50px;
+    line-height: 50px;
 }
 
-nav ul a {
+nav ul {
+    height: 100%;
+    padding: 0 10px 0 0;
+
+}
+
+
+nav ul.right button {
+    margin: 0 10px;
+}
+
+nav ul li {
+    height: inherit;
+    padding: 0;
+
+}
+
+nav ul li a {
     color: #f2f2f2;
+    height: inherit;
+    font-size: 14px;
+
 }
 
 nav .active, .sidenav .active {
@@ -76,8 +152,6 @@ nav .active-hide {
 }
 
 nav.scrolled {
-    /*background: #fff url('../assets/nav.gif');*/
-    /*background-size: contain;*/
     border-bottom: 1px solid #00001b;
     background-color: #143056;
     opacity: .9%;
@@ -96,6 +170,14 @@ nav.scrolled .brand-logo {
     background-color: #00001B;
 }
 
-.sidenav li>a{
+.sidenav li > a {
     color: #f2f2f2;
+}
+
+@media only screen and (min-width: 601px) {
+    nav, nav .nav-wrapper i {
+        line-height: 50px;
+        height: 50px;
+        margin-left: 0;
+    }
 }

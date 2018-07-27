@@ -9,28 +9,28 @@ import AboutMe from '../aboutme';
 
 import Navbar from '../common/Navbar';
 import FloatingActionButton from '../common//FloatingActionButton';
-import {getCurrentUser} from "../util/APIUtils";
-import LoginForm from "../user/login/LoginForm";
+import {getCurrentUser, login} from "../util/APIUtils";
+// import LoginForm from "../user/login/LoginForm";
 import * as M from "materialize-css";
-// import LoadingIndicator from "../common/LoadingIndicator";
 import {ACCESS_TOKEN} from "../constants";
-import SignupForm from "../user/signup/SignupForm";
+// import SignupForm from "../user/signup/SignupForm";
 import {FullScreenPreloader} from "../common/FullScreenPreloader";
 import Resume from "../resume";
 import Profile from "../profile";
+import LoginForm from "../user/login/LoginForm";
+import SignupForm from "../user/signup/SignupForm";
 
 interface AppState {
     currentUser: any,
     isAuthenticated: boolean,
     isLoading: boolean,
-    history: any
+    history: any,
+    modalWindow : any;
 }
 
 class App extends React.Component<any, AppState> {
     constructor(props: any) {
         super(props);
-        this.renderLoginForm = this.renderLoginForm.bind(this);
-        this.renderSignupForm = this.renderSignupForm.bind(this);
         this.loadCurrentUser = this.loadCurrentUser.bind(this);
         this.handleLogin = this.handleLogin.bind(this);
         this.handleSignup = this.handleSignup.bind(this);
@@ -40,14 +40,13 @@ class App extends React.Component<any, AppState> {
             currentUser: {},
             isAuthenticated: false,
             isLoading: false,
-            history: History
+            history: History,
+            modalWindow: null
         }
     }
-
     componentWillMount() {
         this.loadCurrentUser();
     }
-
     loadCurrentUser() {
         this.setState({
             isLoading: true
@@ -60,8 +59,6 @@ class App extends React.Component<any, AppState> {
                     isLoading: false
                 });
             }).catch(error => {
-            // M.toast({html: 'Not logged in'});
-
             this.setState({
                 isLoading: false
             });
@@ -70,55 +67,61 @@ class App extends React.Component<any, AppState> {
 
     handleLogin() {
         this.loadCurrentUser();
-        this.props.history.push("/");
+
+        // Close login modal window after successful login
+        const elem : any = document.getElementById('form-modal-login');
+        const instance = M.Modal.getInstance(elem);
+        instance.close();
     }
 
     handleLogout(redirectTo = "/", notificationType = "success", description = "You're successfully logged out.") {
         localStorage.removeItem(ACCESS_TOKEN);
-
         this.setState({
             currentUser: {},
             isAuthenticated: false
         });
-
-        this.props.history.push(redirectTo);
+        // this.props.history.push(redirectTo);
         M.toast({html: description});
     }
 
-    handleSignup() {
-        this.props.history.push("/login")
-    }
+    handleSignup(usernameOrEmail: string, password: string) {
 
-    renderLoginForm() {
-        return <LoginForm onLogin={this.handleLogin}/>;
-    }
+        // Close login modal window after successful login
+        const elem : any = document.getElementById('form-modal-signup');
+        const instance = M.Modal.getInstance(elem);
+        instance.close();
 
-    renderSignupForm() {
-        return <SignupForm onSignup={this.handleSignup}/>;
+        const loginRequest = {
+            usernameOrEmail,
+            password
+        };
+
+        this.setState({isLoading: true})
+        login(loginRequest)
+            .then(response => {
+                localStorage.setItem(ACCESS_TOKEN, response.accessToken);
+                this.handleLogin();
+        });
+
     }
 
     render() {
-
-        // if (!this.state.isLoading) {
-        // return <LoadingIndicator/>
         return (
-
             <div style={{minHeight: '100vh'}}>
+
+                <LoginForm onLogin={this.handleLogin}/>
+                <SignupForm onSignup={this.handleSignup}/>
 
                 {this.state.isLoading && <FullScreenPreloader/>}
 
-
                 <Navbar isAuthenticated={this.state.isAuthenticated}
                         currentUser={this.state.currentUser}
-                        onLogout={this.handleLogout}/>
+                        onLogout={this.handleLogout}
+                        onLogin={this.handleLogin}/>
 
                 <Route exact={true} path="/" component={Home}/>
                 <Route path="/projects" component={Projects}/>
                 <Route path='/aboutMe' component={AboutMe}/>
-
-                <Route path="/login" render={this.renderLoginForm}/>
-
-                <Route path="/signup" render={this.renderSignupForm}/>
 
                 <Route path="/resume" component={Resume}/>
 
