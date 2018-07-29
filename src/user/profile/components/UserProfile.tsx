@@ -40,7 +40,7 @@ class UserProfile extends React.Component<UserProfileProps, UserProfileState> {
     }
 
     render() {
-        if (this.state.user.length === 0) {
+        if (!this.state.isLoading && this.state.user.length === 0) {
             return <NotFound/>
         }
 
