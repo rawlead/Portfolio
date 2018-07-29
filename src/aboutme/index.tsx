@@ -19,28 +19,29 @@ class AboutMe extends React.Component {
 
     render() {
         return (
-            <div>
-                <Header/>
+            <React.Fragment>
+                <main id="aboutme-root">
+                    <Header/>
 
-                <ScrollSpy/>
+                    <ScrollSpy/>
 
-                <Introduction/>
+                    <Introduction/>
 
-                <Education/>
+                    <Education/>
 
-                <Skills/>
+                    <Skills/>
 
-                <FeaturedProjects />
+                    <FeaturedProjects/>
 
-                <Facts/>
+                    <Facts/>
 
-                <Info/>
+                    <Info/>
+                </main>
 
                 <Footer>
                     <img src={footer_img} className="img__before__footer" alt="Footer"/>
                 </Footer>
-
-            </div>
+            </React.Fragment>
         )
     }
 }

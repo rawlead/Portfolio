@@ -1,8 +1,12 @@
 import * as React from 'react';
-import {USER_LIST_SIZE} from '../../constants'
-import {getAllUsers} from "../../util/APIUtils";
-import User from "./User";
-import LoadingIndicator from "../../common/LoadingIndicator";
+import {USER_LIST_SIZE} from '../../../constants/index'
+import {getAllUsers} from "../../../util/APIUtils";
+import UserListItem from "./UserListItem";
+import LoadingIndicator from "../../../common/LoadingIndicator";
+import './UserList.css';
+
+// @ts-ignore
+import {CSSTransitionGroup} from 'react-transition-group'
 
 interface UserListState {
     users: any,
@@ -16,6 +20,8 @@ interface UserListState {
 }
 
 class UserList extends React.Component<any, UserListState> {
+    private userViews: any = [];
+    private autocomplete: any;
 
     constructor(props: any) {
         super(props);
@@ -35,6 +41,17 @@ class UserList extends React.Component<any, UserListState> {
 
     componentWillMount() {
         this.loadUserList();
+    }
+
+    componentDidMount() {
+        M.Autocomplete.init(this.autocomplete, {
+            data: {
+                "Apple": null,
+                "Microsoft": null,
+                "Google": 'https://placehold.it/250x250'
+            }
+        })
+
     }
 
     loadUserList(page = 0, size = USER_LIST_SIZE) {
@@ -84,9 +101,9 @@ class UserList extends React.Component<any, UserListState> {
     }
 
     render() {
-        const userViews: any = [];
         this.state.users.forEach((user: any, userIndex: number) => {
-            userViews.push(<User
+            this.userViews.push(<UserListItem
+                show={true}
                 key={user.id}
                 user={user}
             />)
@@ -94,18 +111,31 @@ class UserList extends React.Component<any, UserListState> {
         return (
 
             <React.Fragment>
-                <div className="user-list container">
-                    {userViews}
+                <h6>UserList</h6>
 
-                    {
-                        this.state.isLoading ?
-                            <LoadingIndicator />: null
-                    }
+                <div className="input-field">
+                    <i className="material-icons prefix">search</i>
+                    <input type="text" id="autocomplete-input" className="autocomplete" ref={(autocomplete) => this.autocomplete = autocomplete}/>
+                    <label htmlFor="autocomplete-input">Search box</label>
                 </div>
+
+
+                <div className="user-list">
+                    {/*Fade in effect*/}
+                    <CSSTransitionGroup transitionName="user-list-transition-group" transitionEnterTimeout={1000}
+                                        transitionLeaveTimeout={1000}>
+                        {this.userViews}
+                    </CSSTransitionGroup>
+                </div>
+
+                {
+                    this.state.isLoading ?
+                        <LoadingIndicator/> : null
+                }
 
                 {!this.state.isLoading && !this.state.last ?
 
-                    (<div className="load-more-polls container">
+                    (<div className="load-more-polls">
                         <button className="btn black" type="dashed" onClick={this.handleLoadMore}
                                 disabled={this.state.isLoading}>
                             Load more

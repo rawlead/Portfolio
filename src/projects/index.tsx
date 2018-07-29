@@ -1,14 +1,19 @@
 import * as React from 'react';
 import './Projects.css';
+import Footer from "../common/Footer";
 
 const Projects = () => (
 
-    <div id="projects-root">
+    <React.Fragment>
+
+        <main id="projects-root">
 
 
-        <div className="fake-nav-background"/>
-        {/*<h1>Projects</h1>*/}
-    </div>
+            <div className="fake-nav-background"/>
+            {/*<h1>Projects</h1>*/}
+        </main>
+        <Footer/>
+    </React.Fragment>
 )
 
 

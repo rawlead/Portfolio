@@ -13,7 +13,7 @@ class Home extends React.Component {
 
     render() {
         return (
-            <div id="home-page-root">
+            <main id="home-page-root">
                 <div className="home-page-cover"/>
 
                 <div className="hero-text-wrapper">
@@ -21,7 +21,7 @@ class Home extends React.Component {
 
                     <h5 className="hero-text-typewrite" style={{color: "#f2f2f2", opacity: .75}}>Java Software Developer</h5>
                 </div>
-            </div>
+            </main>
 
         )
     }

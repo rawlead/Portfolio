@@ -72,7 +72,7 @@ class LoginForm extends React.Component<any, LoginFormState> {
         login(loginRequest)
             .then(response => {
                 localStorage.setItem(ACCESS_TOKEN, response.accessToken);
-                this.props.onLogin();
+                this.props.onLogin(usernameOrEmail.value);
                 this.setState({isLoading: false, isWrongCredentials: false});
                 M.toast({html: `Welcome back, ${usernameOrEmail.value}`});
             }).catch(error => {

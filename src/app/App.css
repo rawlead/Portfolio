@@ -78,9 +78,16 @@ body, html {
     font-family: 'Maven Pro', sans-serif;
 }
 
-body, html {
-    height: 100%;
+body {
+    display: flex !important;
+    min-height: 100vh !important;
+    flex-direction: column !important;
 }
+
+main {
+    flex: 1 0 auto !important;
+}
+
 
 #facts i, #featured_projects i {
     color: #F6B34E;

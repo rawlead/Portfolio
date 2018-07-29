@@ -195,7 +195,7 @@
     .nav-dropdown-content {
         right: 0;
     }
-    nav ul {
+    #nav ul {
         padding: 0;
     }
 }

@@ -1,0 +1,21 @@
+#profile-root {
+    background-color: #DBE0E5;
+    min-height: 100vh;
+}
+
+
+#profile-root h1 {
+    margin: 0;
+}
+
+#profile-root .container {
+    height: 100% !important;
+}
+
+.tabs {
+    background-color: #143056;
+}
+
+.tab-container {
+    height: 100% !important;
+}

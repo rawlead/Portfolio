@@ -76,3 +76,10 @@ export function getAllUsers(page : number, size : number) {
         method: 'GET'
     });
 }
+
+export function getUserProfile(username: string) {
+    return request({
+        url: API_BASE_URL + "/users/" + username,
+        method: 'GET'
+    })
+}

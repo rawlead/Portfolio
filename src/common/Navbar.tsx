@@ -23,6 +23,7 @@ class NavbarTop extends React.Component<NavbarTopProps, any> {
             M.Modal.init(elems, {inDuration: 0, outDuration: 0});
         });
     }
+
     styleTopnavOnScroll() {
         window.onscroll = () => {
             const currentScrollPos = window.pageYOffset;
@@ -37,88 +38,87 @@ class NavbarTop extends React.Component<NavbarTopProps, any> {
             }
         }
     }
+
     render() {
         return (
-            <div>
-                {/*<div className="navbar-fixed">*/}
-                    <nav id="nav">
-                        <div className="nav-wrapper">
-                            <a href="#" data-target="sidenav-mobile" className="sidenav-trigger left"><i
-                                className="material-icons">menu</i></a>
+            <header>
+                <nav id="nav">
+                    <div className="nav-wrapper">
+                        <a href="#" data-target="sidenav-mobile" className="sidenav-trigger left"><i
+                            className="material-icons">menu</i></a>
 
-                            <Link to="/" className="brand-logo center hide-on-small-only">IS</Link>
-                            <ul className="left hide-on-med-and-down">
-                                <li><NavLink exact={true} to="/" activeClassName="active">Home</NavLink></li>
-                                <li><NavLink to="/projects" activeClassName="active">Projects</NavLink></li>
-                                <li><NavLink to="/aboutMe" activeClassName="active">About Me</NavLink></li>
-                                <li><NavLink to="/resume" activeClassName="active">Resume</NavLink></li>
-                            </ul>
+                        <Link to="/" className="brand-logo center hide-on-small-only">IS</Link>
+                        <ul className="left hide-on-med-and-down">
+                            <li><NavLink exact={true} to="/" activeClassName="active">Home</NavLink></li>
+                            <li><NavLink to="/projects" activeClassName="active">Projects</NavLink></li>
+                            <li><NavLink to="/aboutMe" activeClassName="active">About Me</NavLink></li>
+                            <li><NavLink to="/resume" activeClassName="active">Resume</NavLink></li>
+                        </ul>
 
-                            <ul className="right">
+                        <ul className="right">
 
-                                {!this.props.isAuthenticated
+                            {!this.props.isAuthenticated
 
-                                &&
+                            &&
 
-                                <React.Fragment>
-                                    <li>
-                                        <button data-target="form-modal-login"
-                                                className="waves-effect btn-flat modal-trigger">Log
-                                            in
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button
-                                            data-target="form-modal-signup"
-                                            className="btn waves-effect btn-small modal-trigger hide-on-med-and-down">Sign
-                                            up
-                                        </button>
-                                    </li>
-                                </React.Fragment>
-
-                                }
-
-                                <li className="nav-dropdown">
-                                    <Link to="#"
-                                          className="nav-dropdown-btn">
-                                        {!this.props.isAuthenticated ?
-                                            (<i className="material-icons left">account_circle</i>)
-                                            :
-                                            (
-                                                this.props.currentUser.username)
-                                        }
-                                        <i className="material-icons right">arrow_drop_down</i>
-                                    </Link>
-
-                                    <div className="nav-dropdown-content">
-
-                                        {this.props.isAuthenticated ? (
-                                            <React.Fragment>
-                                                <Link to="/profile">My Profile</Link>
-                                                <Link onClick={this.props.onLogout} to="#"><i
-                                                    className="fas fa-sign-out-alt"/> Log out</Link>
-                                            </React.Fragment>
-                                        ) : (
-                                            <button
-                                                data-target="form-modal-login"
-                                                    className="waves-effect btn modal-trigger">Log
-                                                in / Sign up
-                                            </button>
-                                        )}
-                                    </div>
+                            <React.Fragment>
+                                <li>
+                                    <button data-target="form-modal-login"
+                                            className="waves-effect btn-flat modal-trigger">Log
+                                        in
+                                    </button>
                                 </li>
-                            </ul>
+                                <li>
+                                    <button
+                                        data-target="form-modal-signup"
+                                        className="btn waves-effect btn-small modal-trigger hide-on-med-and-down">Sign
+                                        up
+                                    </button>
+                                </li>
+                            </React.Fragment>
 
-                        </div>
-                    </nav>
-                {/*</div>*/}
+                            }
+
+                            <li className="nav-dropdown">
+                                <Link to="#"
+                                      className="nav-dropdown-btn">
+                                    {!this.props.isAuthenticated ?
+                                        (<i className="material-icons left">account_circle</i>)
+                                        :
+                                        (
+                                            this.props.currentUser.username)
+                                    }
+                                    <i className="material-icons right">arrow_drop_down</i>
+                                </Link>
+
+                                <div className="nav-dropdown-content">
+
+                                    {this.props.isAuthenticated ? (
+                                        <React.Fragment>
+                                            <Link to={"/user/" + this.props.currentUser.username}>My Profile</Link>
+                                            <Link onClick={this.props.onLogout} to="#"><i
+                                                className="fas fa-sign-out-alt"/> Log out</Link>
+                                        </React.Fragment>
+                                    ) : (
+                                        <button
+                                            data-target="form-modal-login"
+                                            className="waves-effect btn modal-trigger">Log
+                                            in / Sign up
+                                        </button>
+                                    )}
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+                </nav>
 
                 <NavbarSide
                     isAuthenticated={this.props.isAuthenticated}
                     currentUser={this.props.currentUser}
                     onLogout={this.props.onLogout}
                 />
-            </div>
+            </header>
         );
     }
 }
