@@ -16,16 +16,18 @@ interface UserListState {
     totalPages: number,
     last: boolean,
     currentUsers: any,
-    isLoading: boolean
+    isLoading: boolean,
+
+    [key: string]: any
 }
 
 class UserList extends React.Component<any, UserListState> {
-    private userViews: any = [];
-    private autocomplete: any;
-
     constructor(props: any) {
         super(props);
         this.state = {
+            userSearch: {
+                value: ''
+            },
             users: [],
             page: 0,
             size: 10,
@@ -37,21 +39,24 @@ class UserList extends React.Component<any, UserListState> {
         };
         this.loadUserList = this.loadUserList.bind(this);
         this.handleLoadMore = this.handleLoadMore.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.filteredUsers = this.filteredUsers.bind(this);
     }
 
     componentWillMount() {
         this.loadUserList();
     }
 
-    componentDidMount() {
-        M.Autocomplete.init(this.autocomplete, {
-            data: {
-                "Apple": null,
-                "Microsoft": null,
-                "Google": 'https://placehold.it/250x250'
-            }
-        })
+    handleChange(event: any) {
+        const target = event.target;
+        const inputName = target.name;
+        const inputValue = target.value;
 
+        this.setState({
+            [inputName]: {
+                value: inputValue
+            }
+        });
     }
 
     loadUserList(page = 0, size = USER_LIST_SIZE) {
@@ -100,41 +105,49 @@ class UserList extends React.Component<any, UserListState> {
         this.loadUserList(this.state.page + 1);
     }
 
+    filteredUsers(username: string) {
+        return this.state.users.filter((user: any) => {
+            return username !== '' && user.username.toLowerCase().includes(username.toLowerCase())
+        })
+    }
+
     render() {
-        this.state.users.forEach((user: any, userIndex: number) => {
-            this.userViews.push(<UserListItem
+        const userViews: any = [];
+        let users: any = [];
+        if (this.state.userSearch.value !== '') {
+            users = this.filteredUsers(this.state.userSearch.value);
+        } else {
+            users = this.state.users;
+        }
+        users.forEach((user: any) => {
+            userViews.push(<UserListItem
                 show={true}
                 key={user.id}
                 user={user}
             />)
         });
         return (
-
-            <React.Fragment>
-                <h6>UserList</h6>
+            <div id="user-list-root">
+                <div className="tab-container-header valign-wrapper">
+                    <p>Total users: {this.state.totalElements} | Pages: {this.state.totalPages} | Users per
+                        page: {USER_LIST_SIZE}</p>
+                </div>
 
                 <div className="input-field">
                     <i className="material-icons prefix">search</i>
-                    <input type="text" id="autocomplete-input" className="autocomplete" ref={(autocomplete) => this.autocomplete = autocomplete}/>
-                    <label htmlFor="autocomplete-input">Search box</label>
+                    <input id="user-search-input"
+                           name="userSearch"
+                           type="text"
+                           onChange={this.handleChange}
+                           value={this.state.userSearch.value}/>
+                    <label htmlFor="user-search-input">Filter by username</label>
                 </div>
 
+                {this.state.userSearch.value !== '' && <p>Showing results for: {this.state.userSearch.value}</p>}
+                {users.length === 0 && <p>No users found</p>}
 
-                <div className="user-list">
-                    {/*Fade in effect*/}
-                    <CSSTransitionGroup transitionName="user-list-transition-group" transitionEnterTimeout={1000}
-                                        transitionLeaveTimeout={1000}>
-                        {this.userViews}
-                    </CSSTransitionGroup>
-                </div>
 
-                {
-                    this.state.isLoading ?
-                        <LoadingIndicator/> : null
-                }
-
-                {!this.state.isLoading && !this.state.last ?
-
+                {!this.state.isLoading && users.length !== 0 && !this.state.last ?
                     (<div className="load-more-polls">
                         <button className="btn black" type="dashed" onClick={this.handleLoadMore}
                                 disabled={this.state.isLoading}>
@@ -143,8 +156,28 @@ class UserList extends React.Component<any, UserListState> {
                     </div>) : null
                 }
 
+                <div className="user-list">
+                    {/*Fade in effect*/}
+                    <CSSTransitionGroup transitionName="user-list-transition-group" transitionEnterTimeout={1000}
+                                        transitionLeaveTimeout={1000}>
+                        {userViews}
+                    </CSSTransitionGroup>
+                </div>
+                {
+                    this.state.isLoading ?
+                        <LoadingIndicator/> : null
+                }
 
-            </React.Fragment>
+
+                {!this.state.isLoading && users.length !== 0  && !this.state.last ?
+                    (<div className="load-more-polls">
+                        <button className="btn black" type="dashed" onClick={this.handleLoadMore}
+                                disabled={this.state.isLoading}>
+                            Load more
+                        </button>
+                    </div>) : null
+                }
+            </div>
         )
     }
 

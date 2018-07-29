@@ -19,7 +19,7 @@ export const NAME_MIN_LENGTH = 4;
 export const NAME_MAX_LENGTH = 40;
 
 
-export const USER_LIST_SIZE = 4;
+export const USER_LIST_SIZE = 12;
 
 export const USERNAME_MIN_LENGTH = 3;
 export const USERNAME_MAX_LENGTH = 15;

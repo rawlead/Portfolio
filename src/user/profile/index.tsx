@@ -25,15 +25,17 @@ class Profile extends React.Component<any, ProfileState> {
         };
     }
 
-    componentDidMount() {
-        M.Tabs.init(this.tabs);
-    }
+    // componentDidMount() {
+    //     M.Tabs.init(this.tabs);
+    // }
 
     componentWillReceiveProps(nextProps: any) {
         if (this.props.match.params.username !== nextProps.match.params.username) {
             this.setState({profileUsername: this.getUsernameFromPath()})
         }
-        M.Tabs.init(this.tabs);
+        M.Tabs.init(this.tabs, {
+            swipeable: true
+        });
     }
 
     getUsernameFromPath() {
@@ -46,16 +48,19 @@ class Profile extends React.Component<any, ProfileState> {
     }
 
     render() {
-        let profileView = <UserProfile user={this.props.currentUser}/>;
+        let profileView = <UserProfile  username={this.state.profileUsername}/>;
 
         if (this.isCurrentUserProfile()) {
-            profileView = <MyProfile currentUser={this.props.currentUser} isAuthenticated={this.props.isAuthenticated}/>;
+            profileView =
+                <MyProfile currentUser={this.props.currentUser} isAuthenticated={this.props.isAuthenticated}/>;
         }
         return (
             <React.Fragment>
                 <main id="profile-root">
                     <div className="fake-nav-background"/>
-                    {profileView}
+                    <div className="container">
+                        {profileView}
+                    </div>
                 </main>
                 <Footer/>
             </React.Fragment>
