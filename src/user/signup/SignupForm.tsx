@@ -161,7 +161,7 @@ class SignupForm extends React.Component<any, SignupFormState> {
 
             <div id="form-modal-signup" className="modal form-modal ">
                 <button className="user-form-modal-close btn-flat modal-close"><i
-                    className="fas fa-times"/>
+                    className="fas fa-times fa-2x"/>
                 </button>
                 <div id="signup-root">
                     <div className="user-form-col-img user-form-col-img__signup"/>

@@ -57,7 +57,6 @@ class Profile extends React.Component<any, ProfileState> {
         return (
             <React.Fragment>
                 <main id="profile-root">
-                    <div className="fake-nav-background"/>
                     <div className="container">
                         {profileView}
                     </div>

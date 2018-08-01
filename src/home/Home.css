@@ -1,27 +1,21 @@
 #home-page-root {
     text-align: center;
-    /*position: relative;*/
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    z-index: -1;
     background: #143056 url("../assets/barcelona-1.jpg") no-repeat center;
     background-size: cover;
-    /*min-height: 100%;*/
-    min-height: 100%
-    /*padding-top: 60px;*/
-    /*overflow: hidden;*/
+    min-height: inherit;
+    position: relative;
+    z-index: -1;
+    transition: margin-left .5s;
 }
 
-.home-page-cover {
-    background-color: #000;
+.home-page-overlay {
+    background-color: #000;;
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
+    z-index: -1;
     opacity: .6;
 }
 

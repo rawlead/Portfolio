@@ -23,7 +23,7 @@ class Facts extends React.Component {
                      }}>
                     <div className="container">
                         <div className="row">
-                            <div className="col s12 m5">
+                            <div className="col s12 m6">
                                 <h3>Random facts</h3>
                                 <h6><i className="fas fa-code"/> I love to code</h6>
                                 <h6><i className="fas fa-coffee"/> I drink a lot of coffee</h6>

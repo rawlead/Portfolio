@@ -17,7 +17,7 @@ class Introduction extends React.Component {
                  })}>
                 <div className="container">
                     <div className="row ">
-                        <div className="col s12 m5 l5">
+                        <div className="col s12 m5">
                             <h3>hi.</h3>
                             <h5>my name is Ivan.
                                 I am specialised in both front-end and back-end web development.</h5>

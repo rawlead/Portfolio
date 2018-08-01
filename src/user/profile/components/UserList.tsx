@@ -129,54 +129,58 @@ class UserList extends React.Component<any, UserListState> {
         return (
             <div id="user-list-root">
                 <div className="tab-container-header valign-wrapper">
-                    <p>Total users: {this.state.totalElements} | Pages: {this.state.totalPages} | Users per
+                    <p>Total users: {this.state.totalElements} | Pages: {this.state.totalPages} | Max users per
                         page: {USER_LIST_SIZE}</p>
                 </div>
 
-                <div className="input-field">
-                    <i className="material-icons prefix">search</i>
-                    <input id="user-search-input"
-                           name="userSearch"
-                           type="text"
-                           onChange={this.handleChange}
-                           value={this.state.userSearch.value}/>
-                    <label htmlFor="user-search-input">Filter by username</label>
+
+                <div className="tab-container-body">
+
+                    <div className="input-field">
+                        <i className="material-icons prefix">search</i>
+                        <input id="user-search-input"
+                               name="userSearch"
+                               type="text"
+                               onChange={this.handleChange}
+                               value={this.state.userSearch.value}/>
+                        <label htmlFor="user-search-input">Filter by username</label>
+                    </div>
+
+                    {this.state.userSearch.value !== '' && <p>Showing results for: {this.state.userSearch.value}</p>}
+                    {users.length === 0 && <p>No users found</p>}
+
+
+                    {!this.state.isLoading && users.length !== 0 && !this.state.last ?
+                        (<div className="load-more-polls">
+                            <button className="btn black" type="dashed" onClick={this.handleLoadMore}
+                                    disabled={this.state.isLoading}>
+                                Load more
+                            </button>
+                        </div>) : null
+                    }
+
+                    <div className="user-list">
+                        {/*Fade in effect*/}
+                        <CSSTransitionGroup transitionName="user-list-transition-group" transitionEnterTimeout={1000}
+                                            transitionLeaveTimeout={1000}>
+                            {userViews}
+                        </CSSTransitionGroup>
+                    </div>
+                    {
+                        this.state.isLoading ?
+                            <LoadingIndicator/> : null
+                    }
+
+
+                    {!this.state.isLoading && users.length !== 0 && !this.state.last ?
+                        (<div className="load-more-polls">
+                            <button className="btn black" type="dashed" onClick={this.handleLoadMore}
+                                    disabled={this.state.isLoading}>
+                                Load more
+                            </button>
+                        </div>) : null
+                    }
                 </div>
-
-                {this.state.userSearch.value !== '' && <p>Showing results for: {this.state.userSearch.value}</p>}
-                {users.length === 0 && <p>No users found</p>}
-
-
-                {!this.state.isLoading && users.length !== 0 && !this.state.last ?
-                    (<div className="load-more-polls">
-                        <button className="btn black" type="dashed" onClick={this.handleLoadMore}
-                                disabled={this.state.isLoading}>
-                            Load more
-                        </button>
-                    </div>) : null
-                }
-
-                <div className="user-list">
-                    {/*Fade in effect*/}
-                    <CSSTransitionGroup transitionName="user-list-transition-group" transitionEnterTimeout={1000}
-                                        transitionLeaveTimeout={1000}>
-                        {userViews}
-                    </CSSTransitionGroup>
-                </div>
-                {
-                    this.state.isLoading ?
-                        <LoadingIndicator/> : null
-                }
-
-
-                {!this.state.isLoading && users.length !== 0  && !this.state.last ?
-                    (<div className="load-more-polls">
-                        <button className="btn black" type="dashed" onClick={this.handleLoadMore}
-                                disabled={this.state.isLoading}>
-                            Load more
-                        </button>
-                    </div>) : null
-                }
             </div>
         )
     }

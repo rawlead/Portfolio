@@ -2,6 +2,8 @@ blockquote {
     border-left-color: #F6B34E;
 }
 
+
+
 .bold {
     font-weight: bold;
 }
@@ -15,8 +17,14 @@ blockquote {
 }
 
 #root {
-    min-height: 100%;
-    /*position: relative;*/
+    min-height: 100vh;
+    position: relative;
+}
+
+#main {
+
+    min-height: inherit;
+    transition: margin-left .3s;
 }
 
 
@@ -79,13 +87,13 @@ body, html {
 }
 
 body {
-    display: flex !important;
+    /*display: flex !important;*/
     min-height: 100vh !important;
-    flex-direction: column !important;
+    /*flex-direction: column !important;*/
 }
 
 main {
-    flex: 1 0 auto !important;
+    /*flex: 1 0 auto !important;*/
 }
 
 

@@ -4,11 +4,9 @@
     max-height: 100%;
 }
 
-
 #form-modal-login {
     height: 280px;
 }
-
 
 #form-modal-signup {
     height: 530px;
@@ -20,7 +18,7 @@
     right: 0;
     width: 50px;
     border: none;
-    color: #f2f2f2;
+    color: #00001b;
     margin: 0;
     z-index: 1;
 }
@@ -59,7 +57,6 @@
     min-height: 100%;
 }
 
-
 .form-switch-btn {
     background-color: transparent !important;
     border: none;
@@ -72,8 +69,6 @@
 .form-switch-btn:hover {
     color: #00001B !important;
 }
-
-
 
 .user-form-col h5 {
     color: #143056;
@@ -105,8 +100,6 @@
     background-color: #00001B;
 }
 
-
-
 #g-recaptcha {
     -webkit-transform: scale(0.77);
     -moz-transform: scale(0.77);
@@ -124,13 +117,10 @@
     .modal {
         width: 100%;
     }
-
     .user-form-col {
         width: 100%;
     }
-
     .user-form-col form {
-
         padding-left: 8px;
         padding-right: 8px;
     }
@@ -142,17 +132,21 @@
 .input-field input {
     color: #143056;
     height: 2.1rem !important;
-    margin-top: 0 !important;
     font-size: 16px !important;
-    margin-left: 2.5rem !important;
+    margin-bottom: 3px !important;
+}
+
+.input-field textarea {
+    color: #143056;
+    min-height: 3.5rem !important;
+    padding-top: 7px !important;
+    font-size: 16px !important;
     margin-bottom: 3px !important;
 }
 
 /* label color */
 .input-field label {
     color: #143056 !important;
-
-    margin-left: 2.5rem !important;
     font-size: 12px !important;
 }
 
@@ -165,16 +159,16 @@
 }
 
 /* label focus color */
-.input-field input:focus + label {
+.input-field input:focus + label, .input-field textarea:focus + label {
     color: #143056 !important;
 }
 
-.input-field input:focus {
+.input-field input:focus, .input-field textarea:focus  {
     color: #00001B;
 }
 
 /* label underline focus color */
-.input-field input:focus {
+.input-field input:focus, .input-field textarea:focus {
     border-bottom-color: #00001B !important;
     box-shadow: 0 1px 0 0 #00001B !important;
 }

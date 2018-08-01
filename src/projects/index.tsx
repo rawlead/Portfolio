@@ -9,8 +9,8 @@ const Projects = () => (
         <main id="projects-root">
 
 
-            <div className="fake-nav-background"/>
-            {/*<h1>Projects</h1>*/}
+            {/*<div className="fake-nav-background"/>*/}
+            <h1>Projects</h1>
         </main>
         <Footer/>
     </React.Fragment>

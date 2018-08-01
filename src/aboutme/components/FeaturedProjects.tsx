@@ -23,18 +23,19 @@ class FeaturedProjects extends React.Component {
                      this.scrollSpy = scrollSpy
                  }}>
 
+
                 <div id="featured_projects" className="section">
-                    <div className="container">
-                        <h3 className="featured-section-title">Featured projects</h3>
-                    </div>
                     <div className="slider fullscreen"
                          ref={(slider) => {
                              this.slider = slider
                          }}>
+
+                        <h3 className="featured-section-title">Featured projects</h3>
+
                         <ul className="slides">
                             <li>
                                 <img src={featuredImg1} alt="Portal IS"/>
-                                <div className="caption left-align">
+                                <div className="caption center-align black">
                                     <h3>Portal IS</h3>
                                     <h5>Portal for photographers</h5>
                                     <h5><a className="waves-effect waves-light btn btn-large ">
@@ -43,7 +44,7 @@ class FeaturedProjects extends React.Component {
                             </li>
                             <li>
                                 <img src={featuredImg2} alt="Filter APP"/>
-                                <div className="caption left-align">
+                                <div className="caption center-align">
                                     <h3>Filter APP</h3>
                                     <h5>Photo filters online</h5>
                                     <h5><a className="waves-effect waves-light btn btn-large ">
@@ -53,7 +54,7 @@ class FeaturedProjects extends React.Component {
                             </li>
                             <li>
                                 <img src={featuredImg3} alt="SAN Travels"/>
-                                <div className="caption left-align">
+                                <div className="caption center-align">
                                     <h3>SAN Travels</h3>
                                     <h5>Flight search service</h5>
                                     <h5><a className="waves-effect waves-light btn btn-large ">

@@ -20,7 +20,7 @@ class Skills extends React.Component {
                      }}>
                     <div className="container">
                         <div className="row">
-                            <div className="col s12 m11">
+                            <div className="col s12">
                                 <h3>Skills</h3>
                                 <table className="striped">
                                     <tbody>

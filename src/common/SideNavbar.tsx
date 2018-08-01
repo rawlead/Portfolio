@@ -1,6 +1,9 @@
 import * as React from 'react';
-import {NavLink} from 'react-router-dom';
-import * as M from "materialize-css";
+// import {NavLink} from 'react-router-dom';
+import './Navbar.css';
+import {Link, NavLink} from "react-router-dom";
+// import sidenav_img from '../assets/vegas.jpg'
+// import user_img from '../assets/main.jpg'
 
 interface NavbarSideProps {
     isAuthenticated: boolean,
@@ -8,46 +11,141 @@ interface NavbarSideProps {
     onLogout: any
 }
 
-interface NavbarSideState {
-}
+class SideNavbar extends React.Component<NavbarSideProps, any> {
+    private sidenav: any;
+    private dropdown: any;
 
-class SideNavbar extends React.Component<NavbarSideProps, NavbarSideState> {
-
+    constructor(props: NavbarSideProps) {
+        super(props);
+        this.openNav = this.openNav.bind(this);
+        this.closeNav = this.closeNav.bind(this);
+    }
 
     componentDidMount() {
+        M.Sidenav.init(this.sidenav, {
+                // @ts-ignore
+                preventScrolling: false,
+                onOpenStart: this.openNav,
+                onCloseStart: this.closeNav
+            }
+        );
+
+        M.Dropdown.init(this.dropdown, {constrainWidth: false, coverTrigger: false});
+
         document.addEventListener('DOMContentLoaded', () => {
-            const elems = document.querySelectorAll('.sidenav');
-            M.Sidenav.init(elems, {edge: 'left'});
+            const elems = document.querySelectorAll('.modal');
+            M.Modal.init(elems, {inDuration: 0, outDuration: 0});
         });
+    }
+
+    openNav() {
+        const main = document.getElementById("main");
+        if (main !== null) {
+            main.style.marginLeft = "200px";
+        }
+    }
+
+    closeNav() {
+        const main = document.getElementById("main");
+        if (main !== null) {
+            main.style.marginLeft = "0";
+        }
     }
 
     render() {
         return (
-            <ul className="sidenav"
-                id="sidenav-mobile">
+            <React.Fragment>
+                <ul id="slide-out" className="sidenav" ref={(sidenav) => this.sidenav = sidenav}>
+                    <li>
+                        <a href="javascript:void(0)" className="sidenav-close-btn sidenav-close"
+                           onClick={this.closeNav}><i
+                            className="fas fa-times fa-2x"/></a>
+                    </li>
+                    <li>
+                        <div className="user-view">
+                            {this.props.isAuthenticated ?
 
-                {/*<br/>*/}
-                {/*{this.props.isAuthenticated &&*/}
+                                <Link to={"/user/" + this.props.currentUser.username}><i
+                                    className="fas fa-users-cog fa-2x left"/>
+                                </Link>
+                                :
+                                <Link to="#"><i
+                                    className="fas fa-users-cog fa-2x left"/>
+                                </Link>
+                            }
 
-                {/*<li><button onClick={this.props.onLogout}*/}
-                          {/*className="btn waves-effect">{this.props.currentUser.username}*/}
-                {/*</button>*/}
-                {/*</li>*/}
-                {/*}*/}
 
-                <br/>
-                <li><NavLink exact={true} to="/" className="sidenav-close" activeClassName="active">Home</NavLink></li>
-                <li><NavLink to="/projects" className="sidenav-close" activeClassName="active">Projects</NavLink></li>
-                <li><NavLink to="/aboutMe" className="sidenav-close" activeClassName="active">About Me</NavLink></li>
-                <li><NavLink to="/resume" className="sidenav-close" activeClassName="active">Resume</NavLink></li>
-                <br/>
-                <li>
-                    <button className="sidenav-close sidenav-close-btn    "><i
-                        className="material-icons">close</i></button>
-                </li>
-                <br/>
 
-            </ul>
+
+                            <br/>
+
+                            <button className='name btn-flat ' ref={(dropdown) => this.dropdown = dropdown}
+                               data-target='sidenav-dropdown'>
+
+                                {!this.props.isAuthenticated ?
+                                    <i className="fas fa-user-circle fa-2x left"/>
+                                    :
+                                    this.props.currentUser.username} <i
+                                    className="fas fa-caret-down fa-2x"/></button>
+
+
+
+
+                            <ul id='sidenav-dropdown' className='dropdown-content sidenav-dropdown-content'>
+                                {this.props.isAuthenticated ?
+                                    <React.Fragment>
+                                        <li><Link className="btn-profile" to={"/user/" + this.props.currentUser.username}><i
+                                            className="fas fa-user-circle fa-lg"/>My profile</Link></li>
+
+
+                                        <li>
+                                            <a href="#" className="btn-logout" onClick={this.props.onLogout}><i
+                                                className="fas fa-sign-out-alt fa-lg"/>Log out
+                                            </a>
+                                        </li>
+                                    </React.Fragment>
+                                    :
+                                    <React.Fragment>
+                                        <li>
+                                            <button data-target="form-modal-login"
+                                                    className="sidenav-close btn-flat modal-trigger ">Log
+                                                in / Sign up
+                                            </button>
+                                        </li>
+
+                                    </React.Fragment>
+                                }
+                            </ul>
+
+                        </div>
+                    </li>
+
+
+                    <li><NavLink exact={true} to="/" className="" activeClassName="active">Home</NavLink></li>
+                    <li><NavLink to="/projects" className="" activeClassName="active">Projects</NavLink></li>
+                    <li><NavLink to="/aboutMe" className="" activeClassName="active">About Me</NavLink></li>
+                    <li><NavLink to="/resume" className="" activeClassName="active">Resume</NavLink></li>
+
+                    {!this.props.isAuthenticated
+                    &&
+                    <React.Fragment>
+                        <li className="sidenav-bottom">
+                            <button data-target="form-modal-login"
+                                    className="btn-flat btn-login sidenav-close modal-trigger">Log
+                                in
+                            </button>
+                            <br/>
+                            <button
+                                data-target="form-modal-signup"
+                                className="btn btn-small btn-signup sidenav-close modal-trigger">Sign
+                                up
+                            </button>
+                        </li>
+                    </React.Fragment>}
+                </ul>
+                <a href="#" data-target="slide-out" className="sidenav-trigger sidenav-open-btn"><i
+                    className="fas fa-bars fa-lg"/></a>
+            </React.Fragment>
         )
     }
 }

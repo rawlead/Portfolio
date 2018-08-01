@@ -1,10 +1,11 @@
 .sticky {
     position: -webkit-sticky;
     position: sticky;
-    top: 64px;
+    top: 0;
     display: inline;
-    margin-right: 12%;
+    margin-left: 5%;
     z-index: 5;
+    padding-top: 50px;
 }
 
 

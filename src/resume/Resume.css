@@ -1,19 +1,18 @@
-#resume-root {
-    background-color: #143056;
-    /*min-height: 100vh;*/
-    position: absolute;
-    top:0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    z-index: 1;
+/*#resume-root {*/
+    /*background-color: #143056;*/
+    /*position: absolute;*/
+    /*top:0;*/
+    /*bottom: 0;*/
+    /*right: 0;*/
+    /*left: 0;*/
+    /*z-index: 1;*/
 
-}
+/*}*/
 
 #resume-root iframe {
     width: 100%;
     display: block;
     min-height: 100vh;
     background-color: #f2f2f2;
-    border-top: solid 50px #143056;
+    /*border-top: solid 50px #143056;*/
 }

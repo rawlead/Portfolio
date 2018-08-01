@@ -6,6 +6,8 @@
     color: #f2f2f2;
 }
 
+
+
 .slider h3 {
     color: #F6B34E;
 }
@@ -18,8 +20,8 @@
 }
 
 .slider .caption {
-    padding-top: 100px;
-    color: red;
+    /*padding-top: 100px;*/
+    z-index: 22 !important;
 }
 
 .slider .indicators .indicator-item.active {
@@ -45,10 +47,10 @@
     position: absolute;
     background-color: #00001B;
     top: 90px;
-    left: 15%;
-    padding: 10px;
+    right: 10%;
+    /*padding: 10px;*/
     z-index: 10;
-    color: #f2f2f2;
+    /*color: #f2f2f2;*/
 }
 
 #featured_projects_wrapper {
@@ -63,6 +65,7 @@
     left: 0;
     right: 0;
 }
+
 
 @media screen and (max-width: 600px) {
     .featured-section-title {

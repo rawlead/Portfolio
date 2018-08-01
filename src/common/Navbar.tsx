@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './Navbar.css';
-import {NavLink, Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import NavbarSide from './SideNavbar';
 
 interface NavbarTopProps {
@@ -13,15 +13,16 @@ interface NavbarTopProps {
 class NavbarTop extends React.Component<NavbarTopProps, any> {
     constructor(props: NavbarTopProps) {
         super(props);
+        this.openNav = this.openNav.bind(this);
     }
 
     componentDidMount() {
         this.styleTopnavOnScroll();
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const elems = document.querySelectorAll('.modal');
-            M.Modal.init(elems, {inDuration: 0, outDuration: 0});
-        });
+        // document.addEventListener('DOMContentLoaded', () => {
+        //     const elems = document.querySelectorAll('.modal');
+        //     M.Modal.init(elems, {inDuration: 0, outDuration: 0});
+        // });
     }
 
     styleTopnavOnScroll() {
@@ -39,21 +40,30 @@ class NavbarTop extends React.Component<NavbarTopProps, any> {
         }
     }
 
+    openNav() {
+        const sidenav =  document.getElementById("sidenav-mobile");
+        if (sidenav !== null) {
+            sidenav.style.width = "250px";
+        }
+
+    }
+
     render() {
         return (
             <header>
                 <nav id="nav">
                     <div className="nav-wrapper">
-                        <a href="#" data-target="sidenav-mobile" className="sidenav-trigger left"><i
-                            className="material-icons">menu</i></a>
+
+                        <span onClick={this.openNav} className="left"><i
+                            className="material-icons">menu</i></span>
 
                         <Link to="/" className="brand-logo center hide-on-small-only">IS</Link>
-                        <ul className="left hide-on-med-and-down">
-                            <li><NavLink exact={true} to="/" activeClassName="active">Home</NavLink></li>
-                            <li><NavLink to="/projects" activeClassName="active">Projects</NavLink></li>
-                            <li><NavLink to="/aboutMe" activeClassName="active">About Me</NavLink></li>
-                            <li><NavLink to="/resume" activeClassName="active">Resume</NavLink></li>
-                        </ul>
+                        {/*<ul className="left hide-on-med-and-down">*/}
+                            {/*<li><NavLink exact={true} to="/" activeClassName="active">Home</NavLink></li>*/}
+                            {/*<li><NavLink to="/projects" activeClassName="active">Projects</NavLink></li>*/}
+                            {/*<li><NavLink to="/aboutMe" activeClassName="active">About Me</NavLink></li>*/}
+                            {/*<li><NavLink to="/resume" activeClassName="active">Resume</NavLink></li>*/}
+                        {/*</ul>*/}
 
                         <ul className="right">
 

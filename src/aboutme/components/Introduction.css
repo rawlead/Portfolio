@@ -1,10 +1,10 @@
 .main-img {
     background: url('../../assets/main.jpg') no-repeat left;
     background-size: cover;
-    width: 30%;
+    width: 40%;
     position: absolute;
     min-height: 400px;
-    right: 21%;
+    right: 10%;
     /*z-index: -1;*/
     top: -30%;
     bottom: -25%;

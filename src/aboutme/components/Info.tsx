@@ -27,7 +27,7 @@ class Info extends React.Component {
                  }}>
                 <div className="container">
                     <div className="row">
-                        <div className="col s12 m8">
+                        <div className="col s12 center-align">
                             <h3>More info</h3>
                             <h6>junior | intern.</h6>
                             <div className="divider"/>

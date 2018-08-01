@@ -3,6 +3,7 @@ import './UserProfile.css';
 import {getUserProfile} from "../../../util/APIUtils";
 import LoadingIndicator from "../../../common/LoadingIndicator";
 import NotFound from "../../../common/NotFound";
+import {formatDate, formatDateTime} from "../../../util/Helpers";
 
 interface UserProfileProps {
     username: any
@@ -18,7 +19,7 @@ class UserProfile extends React.Component<UserProfileProps, UserProfileState> {
         super(props);
         this.state = {
             user: [],
-            isLoading:false
+            isLoading: false
         }
         this.loadUserProfile = this.loadUserProfile.bind(this);
     }
@@ -45,21 +46,24 @@ class UserProfile extends React.Component<UserProfileProps, UserProfileState> {
         }
 
         return (
-            <main id="user-profile-root">
+            <div id="user-profile-root">
 
                 <div className="tab-container-header valign-wrapper">
-                    <p>Registration date: n/a | Projects: 0 | Likes: 0</p>
+                    <p>ID: {this.state.user.id} | Joined:{formatDate(this.state.user.joinedAt)} | Projects: 0 | Likes: 0</p>
                 </div>
 
-                {this.state.isLoading ? <LoadingIndicator/> :
-                    (<React.Fragment>
-                        <h1>User profile</h1>
-                        <p>Current: {this.state.user.username}</p>
-                        <p>joinedAt: {this.state.user.joinedAt}</p>
-                    </React.Fragment>)
+                <div className="tab-container-body">
+                    {this.state.isLoading ? <LoadingIndicator/> :
+                        (<React.Fragment>
+                            <h5>{this.state.user.username}</h5>
+                            <div className="divider"/>
+                            <p>{this.state.user.name}</p>
+                            <p>Joined (full date): {formatDateTime(this.state.user.joinedAt)}</p>
+                        </React.Fragment>)
 
-                }
-            </main>
+                    }
+                </div>
+            </div>
         )
     }
 

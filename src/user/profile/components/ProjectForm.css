@@ -1,0 +1,12 @@
+.file-btn {
+    background-color: #DBE0E5;
+    color: #143056;
+}
+
+.file-btn:hover {
+    background-color: #f2f2f2;
+}
+.file-path::placeholder {
+    font-size: 14px !important;
+    color: #143056!important;
+}

@@ -15,7 +15,7 @@ class ScrollSpy extends React.Component {
 
     render() {
         return (
-            <div className="hide-on-med-and-down sticky right bottom-sheet spy reverse-colors"
+            <div className="hide-on-med-and-down sticky left bottom-sheet spy reverse-colors"
 
                  id="scroll-spy">
                 <ul className="section table-of-contents ">
