@@ -112,7 +112,6 @@ class SignupForm extends React.Component<any, SignupFormState> {
 
         this.setState({isLoading: true});
 
-
         const signupRequest = {
             name: this.state.name.value,
             username: this.state.username.value,

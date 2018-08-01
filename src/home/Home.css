@@ -34,7 +34,7 @@
     z-index: 3;
     text-align: center;
     background: linear-gradient(110deg, #ff3e23 40%, rgba(0, 0, 0, 0) 40%),
-    linear-gradient(110deg, #F6B34E 60%, #f2f2f2 60%);
+    linear-gradient(110deg, #F6B34E 60%, #DBE0E5 60%);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 }

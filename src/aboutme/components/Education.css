@@ -3,21 +3,16 @@
     color: #f2f2f2;
     padding: 50px 0;
     margin-bottom: 0px;
-    padding-top: 100px;
+    padding-top: 120px;
     z-index: 2;
-display: block;
+    display: block;
     padding-bottom: 0 !important;
 }
+
 .education-img {
     max-height: 350px;
     margin: 60px 0;
 }
-
-/*#education:before {*/
-    /*width: 100%;*/
-    /*z-index: 1;*/
-/*}*/
-
 
 #education h3, h6 {
     position: relative;
@@ -27,11 +22,10 @@ display: block;
 .night-bottom {
     position: absolute;
     width: 100%;
-    bottom: -120px;
+    bottom: 0;
     z-index: 1;
     /*background: transparent;*/
 }
-
 
 @media screen and (max-width: 600px) {
     #education .container {
@@ -42,4 +36,4 @@ display: block;
         bottom: 100px;
 
     }
-    }
+}

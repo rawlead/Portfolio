@@ -30,12 +30,11 @@ class FeaturedProjects extends React.Component {
                              this.slider = slider
                          }}>
 
-                        <h3 className="featured-section-title">Featured projects</h3>
 
                         <ul className="slides">
                             <li>
                                 <img src={featuredImg1} alt="Portal IS"/>
-                                <div className="caption center-align black">
+                                <div className="caption center-align">
                                     <h3>Portal IS</h3>
                                     <h5>Portal for photographers</h5>
                                     <h5><a className="waves-effect waves-light btn btn-large ">

@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 export const FullScreenPreloader = () => (
+
     <div className="progress-wrapper">
         <div className="preloader-wrapper big active">
             <div className="spinner-layer spinner-blue">
@@ -52,5 +53,6 @@ export const FullScreenPreloader = () => (
             </div>
         </div>
     </div>
+
 );
 

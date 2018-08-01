@@ -1,11 +1,92 @@
+.sidenav-open-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    color: #f6b34e;
+    transition: color 300ms;
+    z-index: 997;
+}
+.sidenav-open-btn:hover {
+    color: #ff3e23;
+}
+
+.sidenav .sidenav-close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 10px !important;
+    z-index: 20;
+}
+.sidenav .sidenav-close-btn i {
+    margin-right: 0 !important;
+    color: #143056;
+}
+
+
+
 .sidenav {
-    width: 200px; /* 0 width - change this with JavaScript */
+    width: 200px;
+    max-height: 100vh !important    ;
     overflow: visible !important;
-    background: #f2f2f2; /* fallback for old browsers */
+    background: #DBE0E5;
+    /*overflow-y: hidden !important;*/
+    /*max-height: 100vh;*/
+    padding-bottom: 10px !important;
+
+}
+
+.sidenav-overlay {
+    display: none !important;
+}
+
+.sidenav .user-view {
+    background-color: #DBE0E5;
 }
 
 .sidenav li p {
     margin: 0;
+}
+
+.sidenav li a {
+    color: #143056;
+    transition: background-color 300ms;
+}
+
+.sidenav li a.active{
+    color: #00001b !important;
+    /*border-right: 5px solid #00001b !important;*/
+    background-color: #f2f2f2 !important;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+/*DROPDOWN*/
+.sidenav .name {
+    color: #ff3e23;
+    margin: 10px 0 0 0 !important;
+}
+
+.sidenav-dropdown-content {
+    background-color: #00001b;
+    padding: 0;
+}
+.sidenav .btn-profile {
+    color: #f2f2f2;
+}
+.sidenav .btn-logout {
+    background: transparent;
+    color: #f2f2f2;
+}
+.sidenav li button.btn-logout i {
+    color: #DBE0E5 !important;
+}
+
+.sidenav-dropdown-content li:hover {
+    background-color: #000;
+    color: #F6B34E;
+}
+
+.sidenav-dropdown-content li a i {
+    color: #f2f2f2;
 }
 
 .sidenav li button {
@@ -25,90 +106,31 @@
     color: #f2f2f2;
 }
 
-.sidenav .btn-logout {
-    background: transparent;
-    color: #f2f2f2;
-}
-
-.sidenav .btn-profile {
-    color: #f2f2f2;
-}
-
-.sidenav li button.btn-logout i {
-    color: #DBE0E5 !important;
-}
-
-.sidenav .name {
-    color: #00001b;
-    /*font-size: 16px !important;*/
-    margin: 10px 0 0 0 !important;
-}
-
-.sidenav .name:hover {
-    /*color: #00001b;*/
-    /*border-bottom: 3px solid #f2f2f2;*/
-}
-
-.sidenav-dropdown-content {
-    background-color: #00001b;
-    padding: 0;
-}
-
-.sidenav-dropdown-content li:hover {
-    background-color: #000;
-    color: #F6B34E;
-}
-
-.sidenav-dropdown-content li a i {
-    color: #f2f2f2;
-}
-
-.sidenav li a {
-    color: #143056;
-    transition: background-color 300ms;
-}
-
-.sidenav li a.active{
-    color: #00001b !important;
-    border-right: 5px solid #00001b !important;
-    background-color: #DBE0E5 !important;
-}
-
-
-
-.sidenav-overlay {
-    display: none !important;
-}
-
-.sidenav .sidenav-close-btn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 0 10px !important;
-    z-index: 20;
-}
 
 .sidenav-bottom {
     position: absolute;
+    bottom: 140px;
+    margin: 0;
+    text-align: center;
+}
+
+
+
+
+
+.sidenav-social-links {
+    position: absolute;
+    /*display: flex;*/
     bottom: 80px;
+    left: 0;
+    margin: 0;
 }
-
-.sidenav .user-view {
-    background-color: #f2f2f2;
+.sidenav-social-links a {
+    text-align: center !important;
+    float: right;
+    padding: 0 13px !important;
 }
-
-.sidenav .sidenav-close-btn i {
-    margin-right: 0 !important;
-    color: #143056;
-
-}
-
-.sidenav-open-btn {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    color: #f6b34e;
-    /*font-size: 30px;*/
-    transition: color 300ms;
-    z-index: 997;
+.sidenav-social-links a i {
+    font-size: 20px;
+    margin: 0 !important;
 }

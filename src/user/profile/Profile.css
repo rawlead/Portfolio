@@ -1,10 +1,9 @@
 #profile-root {
-    /*background-color: #DBE0E5;*/
     background: rgb(0,0,0);
     background: linear-gradient(180deg, #143056 195px, #DBE0E5 195px);
     min-height: 100vh;
-}
 
+}
 
 #profile-root h1 {
     margin: 0;
@@ -16,7 +15,6 @@
 
 .tabs {
     background-color: #143056;
-    /*border-bottom: 1px solid #00001b;*/
     position: relative !important;
     box-sizing: border-box !important;
 }
@@ -35,6 +33,7 @@
 .tab a.active {
     color: #f2f2f2 !important;
     border-bottom: none !important;
+    background-color: #143056 !important;
 }
 
 .tab a:hover {
@@ -58,6 +57,7 @@
     background-color: #fff;
     overflow: hidden;
     padding: 30px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 .tab-container-header p {

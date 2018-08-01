@@ -1,11 +1,11 @@
 import {API_BASE_URL, ACCESS_TOKEN, USER_LIST_SIZE} from "../constants";
 
-const request = (options : any) => {
+const request = (options: any) => {
     const headers = new Headers({
         'Content-Type': 'application/json',
     });
 
-    if(localStorage.getItem(ACCESS_TOKEN)) {
+    if (localStorage.getItem(ACCESS_TOKEN)) {
         headers.append('Authorization', 'Bearer ' + localStorage.getItem(ACCESS_TOKEN))
     }
 
@@ -16,7 +16,7 @@ const request = (options : any) => {
     return fetch(options.url, options)
         .then(response =>
             response.json().then(json => {
-                if(!response.ok) {
+                if (!response.ok) {
                     return Promise.reject(json);
                 }
                 return json;
@@ -24,9 +24,21 @@ const request = (options : any) => {
         );
 };
 
+const multipartRequest = (options: any) => {
+    return fetch(options.url, options)
+        .then(response =>
+            response.json().then(json => {
+                if (!response.ok) {
+                    return Promise.reject(json);
+                }
+                return json;
+            })
+        );
+
+}
 
 
-export function login(loginRequest : any) {
+export function login(loginRequest: any) {
     return request({
         url: API_BASE_URL + "/auth/signin",
         method: 'POST',
@@ -34,7 +46,7 @@ export function login(loginRequest : any) {
     });
 }
 
-export function signup(signupRequest : any) {
+export function signup(signupRequest: any) {
     return request({
         url: API_BASE_URL + "/auth/signup",
         method: 'POST',
@@ -42,14 +54,14 @@ export function signup(signupRequest : any) {
     });
 }
 
-export function checkUsernameAvailability(username : any) {
+export function checkUsernameAvailability(username: any) {
     return request({
         url: API_BASE_URL + "/user/checkUsernameAvailability?username=" + username,
         method: 'GET'
     });
 }
 
-export function checkEmailAvailability(email : any) {
+export function checkEmailAvailability(email: any) {
     return request({
         url: API_BASE_URL + "/user/checkEmailAvailability?email=" + email,
         method: 'GET'
@@ -57,7 +69,7 @@ export function checkEmailAvailability(email : any) {
 }
 
 export function getCurrentUser() {
-    if(!localStorage.getItem(ACCESS_TOKEN)) {
+    if (!localStorage.getItem(ACCESS_TOKEN)) {
         return Promise.reject("No access token set.");
     }
 
@@ -67,7 +79,7 @@ export function getCurrentUser() {
     });
 }
 
-export function getAllUsers(page : number, size : number) {
+export function getAllUsers(page: number, size: number) {
     page = page || 0;
     size = size || USER_LIST_SIZE;
 
@@ -82,4 +94,13 @@ export function getUserProfile(username: string) {
         url: API_BASE_URL + "/users/" + username,
         method: 'GET'
     })
+}
+
+export function uploadSingleFile(file: any) {
+    return multipartRequest({
+        url: API_BASE_URL + "/uploadFile",
+        method: 'POST',
+        body: file
+    });
+
 }

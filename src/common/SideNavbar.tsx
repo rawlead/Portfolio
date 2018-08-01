@@ -5,6 +5,14 @@ import {Link, NavLink} from "react-router-dom";
 // import sidenav_img from '../assets/vegas.jpg'
 // import user_img from '../assets/main.jpg'
 
+const socialColors = {
+    facebook: {color: '#3b5999'},
+    github: {color: '#000'},
+    instagram: {color: '#e4405f'},
+    linkedin: {color: '#0077B5'},
+    email: {color: '#000'},
+};
+
 interface NavbarSideProps {
     isAuthenticated: boolean,
     currentUser: any,
@@ -75,26 +83,23 @@ class SideNavbar extends React.Component<NavbarSideProps, any> {
                             }
 
 
-
-
                             <br/>
 
                             <button className='name btn-flat ' ref={(dropdown) => this.dropdown = dropdown}
-                               data-target='sidenav-dropdown'>
+                                    data-target='sidenav-dropdown'>
 
                                 {!this.props.isAuthenticated ?
                                     <i className="fas fa-user-circle fa-2x left"/>
                                     :
                                     this.props.currentUser.username} <i
-                                    className="fas fa-caret-down fa-2x"/></button>
-
-
+                                className="fas fa-caret-down fa-2x"/></button>
 
 
                             <ul id='sidenav-dropdown' className='dropdown-content sidenav-dropdown-content'>
                                 {this.props.isAuthenticated ?
                                     <React.Fragment>
-                                        <li><Link className="btn-profile" to={"/user/" + this.props.currentUser.username}><i
+                                        <li><Link className="btn-profile"
+                                                  to={"/user/" + this.props.currentUser.username}><i
                                             className="fas fa-user-circle fa-lg"/>My profile</Link></li>
 
 
@@ -121,10 +126,10 @@ class SideNavbar extends React.Component<NavbarSideProps, any> {
                     </li>
 
 
-                    <li><NavLink exact={true} to="/" className="" activeClassName="active">Home</NavLink></li>
-                    <li><NavLink to="/projects" className="" activeClassName="active">Projects</NavLink></li>
-                    <li><NavLink to="/aboutMe" className="" activeClassName="active">About Me</NavLink></li>
-                    <li><NavLink to="/resume" className="" activeClassName="active">Resume</NavLink></li>
+                    <li><NavLink exact={true} to="/" className="waves-effect" activeClassName="active">Home</NavLink></li>
+                    <li><NavLink to="/projects" className="waves-effect" activeClassName="active">Projects</NavLink></li>
+                    <li><NavLink to="/aboutMe" className="waves-effect" activeClassName="active">About Me</NavLink></li>
+                    <li><NavLink to="/resume" className="waves-effect" activeClassName="active">Resume</NavLink></li>
 
                     {!this.props.isAuthenticated
                     &&
@@ -134,7 +139,6 @@ class SideNavbar extends React.Component<NavbarSideProps, any> {
                                     className="btn-flat btn-login sidenav-close modal-trigger">Log
                                 in
                             </button>
-                            <br/>
                             <button
                                 data-target="form-modal-signup"
                                 className="btn btn-small btn-signup sidenav-close modal-trigger">Sign
@@ -142,12 +146,35 @@ class SideNavbar extends React.Component<NavbarSideProps, any> {
                             </button>
                         </li>
                     </React.Fragment>}
+
+                    <li className="sidenav-social-links">
+
+                        <a className=""
+                           href="https://www.facebook.com/q0h44" target="_blank" rel="noopener noreferrer">
+                            <i style={socialColors.facebook}  className="fab fa-facebook center-align"/></a>
+
+                        <a  className="" href="https://github.com/rawlead"
+                           target="_blank" rel="noopener noreferrer">
+                            <i style={socialColors.github} className="fab fa-github-square fa-lg"/></a>
+
+
+                        <a className=" "
+                           href="https://www.linkedin.com/in/ivan-shyrai/" target="_blank" rel="noopener noreferrer">
+                            <i style={socialColors.linkedin}  className="fab fa-linkedin"/></a>
+
+                        <a  className="" href="mailto:ivanshyrai@mail.com"
+                           target="_blank" rel="noopener noreferrer">
+                            <i style={socialColors.email} className="fas fa-envelope"/></a>
+                    </li>
+
                 </ul>
                 <a href="#" data-target="slide-out" className="sidenav-trigger sidenav-open-btn"><i
                     className="fas fa-bars fa-lg"/></a>
-            </React.Fragment>
-        )
-    }
-}
 
-export default SideNavbar;
+
+            </React.Fragment>
+    )
+    }
+    }
+
+    export default SideNavbar;
