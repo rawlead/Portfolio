@@ -28,7 +28,7 @@
     width: 200px;
     max-height: 100vh !important    ;
     overflow: visible !important;
-    background: #DBE0E5;
+    background: #fff;
     /*overflow-y: hidden !important;*/
     /*max-height: 100vh;*/
     padding-bottom: 10px !important;
@@ -40,7 +40,7 @@
 }
 
 .sidenav .user-view {
-    background-color: #DBE0E5;
+    background-color: #fff;
 }
 
 .sidenav li p {

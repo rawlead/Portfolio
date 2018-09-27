@@ -127,9 +127,9 @@ class SideNavbar extends React.Component<NavbarSideProps, any> {
 
 
                     <li><NavLink exact={true} to="/" className="waves-effect" activeClassName="active">Home</NavLink></li>
-                    <li><NavLink to="/projects" className="waves-effect" activeClassName="active">Projects</NavLink></li>
+                    {/*<li><NavLink to="/projects" className="waves-effect" activeClassName="active">Projects</NavLink></li>*/}
                     <li><NavLink to="/aboutMe" className="waves-effect" activeClassName="active">About Me</NavLink></li>
-                    <li><NavLink to="/resume" className="waves-effect" activeClassName="active">Resume</NavLink></li>
+                    {/*<li><NavLink to="/resume" className="waves-effect" activeClassName="active">Resume</NavLink></li>*/}
 
                     {!this.props.isAuthenticated
                     &&

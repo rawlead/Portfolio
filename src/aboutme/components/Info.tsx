@@ -31,14 +31,12 @@ class Info extends React.Component {
                             <h3>More info</h3>
                             <h6>junior | intern.</h6>
                             <div className="divider"/>
-                            <h6> experience: 2 years.</h6>
+                            <h6> experience: ( ) years.</h6>
 
                             <h6>recent graduate.</h6>
                             <div className="divider"/>
 
-                            <h6>age: 23.</h6>
-                            <h6>born in Ukrane.</h6>
-                            <h6>live in Poland.</h6>
+                            <h6>From Poland.</h6>
                             <div className="divider"/>
                             <h6>excited to learn new technologies and try on new responsibilities and roles.</h6>
                             <div className="divider"/>

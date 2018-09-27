@@ -20,7 +20,7 @@ class Introduction extends React.Component {
                         <div className="col s12 m5">
                             <h3>hi.</h3>
                             <h5>my name is Ivan.
-                                I am specialised in both front-end and back-end web development.</h5>
+                                I am specialised in front-end and back-end development.</h5>
                             <p>this is my website, where you can find my projects, information about me and more.</p>
                             <p>I am available for hire and open to any ideas of cooperation.</p>
                         </div>

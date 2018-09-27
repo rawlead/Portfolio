@@ -21,7 +21,6 @@ class ProjectForm extends React.Component<any, ProjectFormState> {
     handleSingleFileUpload(events: any) {
         events.preventDefault();
 
-
         const formData = new FormData();
         formData.append("file", this.state.file);
 
