@@ -1,4 +1,4 @@
-#First iteration of my personal website
+<h1>First iteration of my personal website</h1>
 
 Back-end part built with **Java** and **Spring Framework**. <br/>
 
