@@ -2,16 +2,6 @@ import * as React from 'react';
 import * as M from "materialize-css";
 import './Info.css';
 
-// (function () {
-//     var s = document.createElement('script');
-//     s.type = 'text/javascript';
-//     s.async = true;
-//     s.src = '//cdn.youracclaim.com/assets/utilities/embed.js';
-//     var o = document.getElementsByTagName('script')[0];
-//
-//     o.parentNode.insertBefore(s, o);
-// })();
-
 class Info extends React.Component {
     private scrollSpy: any;
 
@@ -31,20 +21,15 @@ class Info extends React.Component {
                             <h3>More info</h3>
                             <h6>junior | intern.</h6>
                             <div className="divider"/>
-                            <h6> experience: ( ) years.</h6>
 
                             <h6>recent graduate.</h6>
                             <div className="divider"/>
 
-                            <h6>From Poland.</h6>
+                            <h6>from Poland.</h6>
                             <div className="divider"/>
                             <h6>excited to learn new technologies and try on new responsibilities and roles.</h6>
                             <div className="divider"/>
                             <h6>able to thrive in a fast-paced and schedule-driven environment.</h6>
-                        </div>
-                        <div className="col s12 m2">
-                            {/*<div data-iframe-width="150" data-iframe-height="270"*/}
-                                 {/*data-share-badge-id="61136f12-504c-475c-941f-7657fdd8c37e"/>*/}
                         </div>
                     </div>
                 </div>

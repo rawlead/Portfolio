@@ -1,7 +1,7 @@
 import * as React from 'react';
 // import {NavLink} from 'react-router-dom';
 import './Navbar.css';
-import {Link, NavLink} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 // import sidenav_img from '../assets/vegas.jpg'
 // import user_img from '../assets/main.jpg'
 
@@ -13,17 +13,17 @@ const socialColors = {
     email: {color: '#000'},
 };
 
-interface NavbarSideProps {
-    isAuthenticated: boolean,
-    currentUser: any,
-    onLogout: any
-}
+// interface NavbarSideProps {
+//     isAuthenticated: boolean,
+//     currentUser: any,
+//     onLogout: any
+// }
 
-class SideNavbar extends React.Component<NavbarSideProps, any> {
+class SideNavbar extends React.Component<any, any> {
     private sidenav: any;
     private dropdown: any;
 
-    constructor(props: NavbarSideProps) {
+    constructor(props: any) {
         super(props);
         this.openNav = this.openNav.bind(this);
         this.closeNav = this.closeNav.bind(this);
@@ -69,92 +69,93 @@ class SideNavbar extends React.Component<NavbarSideProps, any> {
                            onClick={this.closeNav}><i
                             className="fas fa-times fa-2x"/></a>
                     </li>
-                    <li>
-                        <div className="user-view">
-                            {this.props.isAuthenticated ?
+                    {/*<li>*/}
+                    {/*<div className="user-view">*/}
+                    {/*{this.props.isAuthenticated ?*/}
 
-                                <Link to={"/user/" + this.props.currentUser.username}><i
-                                    className="fas fa-users-cog fa-2x left"/>
-                                </Link>
-                                :
-                                <Link to="#"><i
-                                    className="fas fa-users-cog fa-2x left"/>
-                                </Link>
-                            }
-
-
-                            <br/>
-
-                            <button className='name btn-flat ' ref={(dropdown) => this.dropdown = dropdown}
-                                    data-target='sidenav-dropdown'>
-
-                                {!this.props.isAuthenticated ?
-                                    <i className="fas fa-user-circle fa-2x left"/>
-                                    :
-                                    this.props.currentUser.username} <i
-                                className="fas fa-caret-down fa-2x"/></button>
+                    {/*<Link to={"/user/" + this.props.currentUser.username}><i*/}
+                    {/*className="fas fa-users-cog fa-2x left"/>*/}
+                    {/*</Link>*/}
+                    {/*:*/}
+                    {/*<Link to="#"><i*/}
+                    {/*className="fas fa-users-cog fa-2x left"/>*/}
+                    {/*</Link>*/}
+                    {/*}*/}
 
 
-                            <ul id='sidenav-dropdown' className='dropdown-content sidenav-dropdown-content'>
-                                {this.props.isAuthenticated ?
-                                    <React.Fragment>
-                                        <li><Link className="btn-profile"
-                                                  to={"/user/" + this.props.currentUser.username}><i
-                                            className="fas fa-user-circle fa-lg"/>My profile</Link></li>
+                    {/*<br/>*/}
+
+                    {/*<button className='name btn-flat ' ref={(dropdown) => this.dropdown = dropdown}*/}
+                    {/*data-target='sidenav-dropdown'>*/}
+
+                    {/*{!this.props.isAuthenticated ?*/}
+                    {/*<i className="fas fa-user-circle fa-2x left"/>*/}
+                    {/*:*/}
+                    {/*this.props.currentUser.username} <i*/}
+                    {/*className="fas fa-caret-down fa-2x"/></button>*/}
 
 
-                                        <li>
-                                            <a href="#" className="btn-logout" onClick={this.props.onLogout}><i
-                                                className="fas fa-sign-out-alt fa-lg"/>Log out
-                                            </a>
-                                        </li>
-                                    </React.Fragment>
-                                    :
-                                    <React.Fragment>
-                                        <li>
-                                            <button data-target="form-modal-login"
-                                                    className="sidenav-close btn-flat modal-trigger ">Log
-                                                in / Sign up
-                                            </button>
-                                        </li>
-
-                                    </React.Fragment>
-                                }
-                            </ul>
-
-                        </div>
-                    </li>
+                    {/*<ul id='sidenav-dropdown' className='dropdown-content sidenav-dropdown-content'>*/}
+                    {/*{this.props.isAuthenticated ?*/}
+                    {/*<React.Fragment>*/}
+                    {/*<li><Link className="btn-profile"*/}
+                    {/*to={"/user/" + this.props.currentUser.username}><i*/}
+                    {/*className="fas fa-user-circle fa-lg"/>My profile</Link></li>*/}
 
 
+                    {/*<li>*/}
+                    {/*<a href="#" className="btn-logout" onClick={this.props.onLogout}><i*/}
+                    {/*className="fas fa-sign-out-alt fa-lg"/>Log out*/}
+                    {/*</a>*/}
+                    {/*</li>*/}
+                    {/*</React.Fragment>*/}
+                    {/*:*/}
+                    {/*<React.Fragment>*/}
+                    {/*<li>*/}
+                    {/*<button data-target="form-modal-login"*/}
+                    {/*className="sidenav-close btn-flat modal-trigger ">Log*/}
+                    {/*in / Sign up*/}
+                    {/*</button>*/}
+                    {/*</li>*/}
+
+                    {/*</React.Fragment>*/}
+                    {/*}*/}
+                    {/*</ul>*/}
+
+                    {/*</div>*/}
+                    {/*</li>*/}
+                    <br/>
+                    <br/>
+                    <br/>
                     <li><NavLink exact={true} to="/" className="waves-effect" activeClassName="active">Home</NavLink></li>
                     {/*<li><NavLink to="/projects" className="waves-effect" activeClassName="active">Projects</NavLink></li>*/}
                     <li><NavLink to="/aboutMe" className="waves-effect" activeClassName="active">About Me</NavLink></li>
                     {/*<li><NavLink to="/resume" className="waves-effect" activeClassName="active">Resume</NavLink></li>*/}
 
-                    {!this.props.isAuthenticated
-                    &&
-                    <React.Fragment>
-                        <li className="sidenav-bottom">
-                            <button data-target="form-modal-login"
-                                    className="btn-flat btn-login sidenav-close modal-trigger">Log
-                                in
-                            </button>
-                            <button
-                                data-target="form-modal-signup"
-                                className="btn btn-small btn-signup sidenav-close modal-trigger">Sign
-                                up
-                            </button>
-                        </li>
-                    </React.Fragment>}
+                    {/*{!this.props.isAuthenticated*/}
+                    {/*&&*/}
+                    {/*<React.Fragment>*/}
+                    {/*<li className="sidenav-bottom">*/}
+                    {/*<button data-target="form-modal-login"*/}
+                    {/*className="btn-flat btn-login sidenav-close modal-trigger">Log*/}
+                    {/*in*/}
+                    {/*</button>*/}
+                    {/*<button*/}
+                    {/*data-target="form-modal-signup"*/}
+                    {/*className="btn btn-small btn-signup sidenav-close modal-trigger">Sign*/}
+                    {/*up*/}
+                    {/*</button>*/}
+                    {/*</li>*/}
+                    {/*</React.Fragment>}*/}
 
                     <li className="sidenav-social-links">
 
                         <a className=""
-                           href="https://www.facebook.com/q0h44" target="_blank" rel="noopener noreferrer">
+                           href="https://www.facebook.com/ivanshyrai" target="_blank" rel="noopener noreferrer">
                             <i style={socialColors.facebook}  className="fab fa-facebook center-align"/></a>
 
                         <a  className="" href="https://github.com/rawlead"
-                           target="_blank" rel="noopener noreferrer">
+                            target="_blank" rel="noopener noreferrer">
                             <i style={socialColors.github} className="fab fa-github-square fa-lg"/></a>
 
 
@@ -162,8 +163,8 @@ class SideNavbar extends React.Component<NavbarSideProps, any> {
                            href="https://www.linkedin.com/in/ivan-shyrai/" target="_blank" rel="noopener noreferrer">
                             <i style={socialColors.linkedin}  className="fab fa-linkedin"/></a>
 
-                        <a  className="" href="mailto:ivanshyrai@mail.com"
-                           target="_blank" rel="noopener noreferrer">
+                        <a  className="" href="mailto:ivan.shyrai@yahoo.com"
+                            target="_blank" rel="noopener noreferrer">
                             <i style={socialColors.email} className="fas fa-envelope"/></a>
                     </li>
 
@@ -173,8 +174,8 @@ class SideNavbar extends React.Component<NavbarSideProps, any> {
 
 
             </React.Fragment>
-    )
+        )
     }
-    }
+}
 
-    export default SideNavbar;
+export default SideNavbar;

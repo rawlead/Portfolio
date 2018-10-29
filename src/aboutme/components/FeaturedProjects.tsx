@@ -37,8 +37,8 @@ class FeaturedProjects extends React.Component {
                                 <div className="caption center-align">
                                     <h3>Portal IS</h3>
                                     <h5>Portal for photographers</h5>
-                                    <h5><a className="waves-effect waves-light btn btn-large ">
-                                        <i className="material-icons left">info</i> details</a></h5>
+                                    {/*<h5><a className="waves-effect waves-light btn btn-large ">*/}
+                                    {/*<i className="material-icons left">info</i> details</a></h5>*/}
                                 </div>
                             </li>
                             <li>
@@ -46,8 +46,8 @@ class FeaturedProjects extends React.Component {
                                 <div className="caption center-align">
                                     <h3>Filter APP</h3>
                                     <h5>Photo filters online</h5>
-                                    <h5><a className="waves-effect waves-light btn btn-large ">
-                                        <i className="material-icons left">info</i> details</a></h5>
+                                    {/*<h5><a className="waves-effect waves-light btn btn-large ">*/}
+                                    {/*<i className="material-icons left">info</i> details</a></h5>*/}
 
                                 </div>
                             </li>
@@ -56,8 +56,8 @@ class FeaturedProjects extends React.Component {
                                 <div className="caption center-align">
                                     <h3>SAN Travels</h3>
                                     <h5>Flight search service</h5>
-                                    <h5><a className="waves-effect waves-light btn btn-large ">
-                                        <i className="material-icons left">info</i> details</a></h5>
+                                    {/*<h5><a className="waves-effect waves-light btn btn-large ">*/}
+                                    {/*<i className="material-icons left">info</i> details</a></h5>*/}
                                 </div>
                             </li>
                         </ul>

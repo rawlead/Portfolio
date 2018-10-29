@@ -15,7 +15,7 @@ const Header = () => (
 
             <div className="caption parallax-caption center-align">
                 <h3>Ivan Shyrai</h3>
-                <h6>Full-Stack Web Developer</h6>
+                <h6>Java Full Stack Developer</h6>
             </div>
 
         </Parallax>

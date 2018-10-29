@@ -40,7 +40,7 @@ class Skills extends React.Component {
                                     </tr>
                                     <tr data-aos="fade-right">
                                         <td>Databases:</td>
-                                        <td>MySQL / PostgreSQL</td>
+                                        <td>MySQL</td>
                                     </tr>
                                     <tr data-aos="fade-right">
                                         <td>Version Control Systems:</td>
@@ -52,7 +52,7 @@ class Skills extends React.Component {
                                     </tr>
                                     <tr data-aos="fade-right">
                                         <td>Cloud computing:</td>
-                                        <td>Amazon AWS (EC2, EB, RDS, S3)</td>
+                                        <td>Amazon Web Services</td>
                                     </tr>
                                     <tr data-aos="fade-right">
                                         <td>Tools:</td>

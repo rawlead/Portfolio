@@ -36,7 +36,7 @@ class Footer extends React.Component {
                                 <li className="social-link">
                                     <a style={socialColors.facebook}
                                        className="waves-effect btn"
-                                       href="https://www.facebook.com/q0h44"
+                                       href="https://www.facebook.com/ivanshyrai"
                                        target="_blank"
                                        rel="noopener noreferrer">
                                         <i className="fab fa-facebook"/> facebook
@@ -52,15 +52,6 @@ class Footer extends React.Component {
                                     </a>
                                 </li>
                                 <li className="social-link">
-                                    <a style={socialColors.instagram}
-                                       className="waves-effect btn"
-                                       href="https://www.instagram.com/ivanshyrai/"
-                                       target="_blank"
-                                       rel="noopener noreferrer">
-                                        <i className="fab fa-instagram"/> instagram
-                                    </a>
-                                </li>
-                                <li className="social-link">
                                     <a style={socialColors.linkedin}
                                        className="waves-effect btn"
                                        href="https://www.linkedin.com/in/ivan-shyrai/"
@@ -72,7 +63,7 @@ class Footer extends React.Component {
                                 <li className="social-link">
                                     <a style={socialColors.email}
                                        className="waves-effect black btn"
-                                       href="mailto:ivanshyrai@mail.com"
+                                       href="mailto:ivan.shyrai@yahoo.com"
                                        target="_blank"
                                        rel="noopener noreferrer">
                                         <i className="fas fa-envelope"/> email
@@ -81,15 +72,6 @@ class Footer extends React.Component {
                             </ul>
                         </div>
 
-                        <div className="col s12 m2">
-                            <h3><i className="far fa-compass fa-spin"/></h3>
-                            <ul>
-                                <li><a href="/">Home</a></li>
-                                <li><a href="/">Projects</a></li>
-                                <li><a href="/">Dev</a></li>
-                                <li><a href="/">More</a></li>
-                            </ul>
-                        </div>
                         <div className="col s12">
                             <div>
                                 <i className="material-icons">copyright</i> 2018 Warsaw
